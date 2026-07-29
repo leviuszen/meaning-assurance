@@ -1,10 +1,18 @@
 # README Communication Audit
 
-Status: Stage 1 audit accepted for README implementation on 2026-07-24.
+Status: Historical Stage 1 audit; its accepted findings are implemented and
+extended by the local TURNAROUND-01 v0.2.0 candidate on 2026-07-28. Public
+delivery remains unauthorized.
 
 This document evaluates the public README as a first-contact explanation of the
 project. It does not change the product scope, technical architecture, release
 status, or evidence standard.
+
+The TURNAROUND-01 implementation changes the delivery format, not this audit's
+historical evidence: English and Chinese are separated into complete counterpart
+files, the deterministic demo and real first-party case move into the
+first-contact path, and protocol detail moves below the value proof. The
+original audited revision remains recorded below.
 
 ## Audit baseline
 

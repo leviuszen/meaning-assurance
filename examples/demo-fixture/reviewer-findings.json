@@ -1,0 +1,30 @@
+{
+  "schema": "meaning-assurance.demo-review-findings.v1",
+  "task_id": "bounded-validation-review-v1",
+  "findings": [
+    {
+      "id": "DEMO-001",
+      "claim": "One required check was not executed.",
+      "evidence": "frozen-evidence/test-results.json",
+      "requested_outcome": "confirmed"
+    },
+    {
+      "id": "DEMO-002",
+      "claim": "The worker changed a file outside the allowed scope.",
+      "evidence": "frozen-evidence/changed-files.json",
+      "requested_outcome": "confirmed"
+    },
+    {
+      "id": "DEMO-003",
+      "claim": "The worker ran no tests.",
+      "evidence": "frozen-evidence/test-results.json",
+      "requested_outcome": "confirmed"
+    },
+    {
+      "id": "DEMO-004",
+      "claim": "The change caused a performance regression.",
+      "evidence": null,
+      "requested_outcome": "confirmed"
+    }
+  ]
+}

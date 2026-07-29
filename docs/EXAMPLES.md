@@ -4,7 +4,8 @@ These examples use invented project names and content. Do not publish a real tas
 
 ## Before You Start
 
-Install Agent Workbench and configure at least one supported CLI agent:
+Install Meaning Assurance and configure at least one supported CLI agent. The
+runtime environment variable retains its compatibility name:
 
 ```powershell
 $env:AGENT_WORKBENCH_HOME = Join-Path $env:LOCALAPPDATA "AgentWorkbench"
@@ -164,7 +165,9 @@ run.log
 isolated worktree git status and diff
 ```
 
-The result is a proposal. Run the relevant tests yourself, inspect every changed file, and decide whether to reproduce, cherry-pick, rewrite, or reject the work. Agent Workbench does not merge it.
+The result is a proposal. Run the relevant tests yourself, inspect every changed
+file, and decide whether to reproduce, cherry-pick, rewrite, or reject the work.
+Meaning Assurance does not merge it.
 
 ## Failure And Retry Notes
 

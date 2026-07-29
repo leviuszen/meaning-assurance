@@ -1,11 +1,16 @@
 # Meaning Assurance Project Message Framework
 
-Status: Stage 1 communication framework; accepted for README implementation on
-2026-07-24.
+Status: TURNAROUND-01 message source; implemented in the local v0.2.0 candidate
+on 2026-07-28. Public delivery remains unauthorized.
 
 This framework defines the message that a later README revision may express. It
 is not a product-roadmap change, a user-case claim, or evidence of market
 validation.
+
+TURNAROUND-01 implements the accepted problem-first message at full public
+surface depth: separate English and Simplified Chinese READMEs, a deterministic
+demo, a real first-party evidence case, claim traceability, and native launch
+drafts. This implementation does not convert the framework into market evidence.
 
 ## Authority and relationship to existing messaging
 

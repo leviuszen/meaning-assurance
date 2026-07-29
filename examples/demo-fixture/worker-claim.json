@@ -1,0 +1,8 @@
+{
+  "schema": "meaning-assurance.demo-worker-claim.v1",
+  "task_id": "bounded-validation-review-v1",
+  "status": "COMPLETE",
+  "claimed_checks_run": 3,
+  "claimed_scope_respected": true,
+  "claimed_result": "All requested behavior is implemented and verified."
+}

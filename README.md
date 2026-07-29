@@ -1,220 +1,199 @@
 # Meaning Assurance
 
-**by LEVIUS**
+**Evidence-based adversarial review for coding agents — by LEVIUS**
 
-**Release / 版本：** [v0.1.0 Public Preview](https://github.com/leviuszen/agent-workbench/releases/tag/v0.1.0) · [简体中文发布说明](.github/RELEASE_v0.1.0.zh-CN.md)
+[简体中文](README.zh-CN.md) · [Run the demo](#see-the-decision-trail-in-one-command) · [Brainstorm a strategy](#strategic-planning-brainstorm) · [Inspect a real audit](#a-real-first-party-evidence-case) · [Read the protocol](docs/PROTOCOL.md)
+
+> **v0.2.0 release candidate:** this branch is under review in Draft PR
+> [#2](https://github.com/leviuszen/agent-workbench/pull/2). It has not been
+> merged, tagged, or released.
 
 ## Your coding agent says: “Done.”
 
 **Do you believe it?**
 
-What evidence do you check before accepting it?
+What evidence did it leave? Who challenged the claim? When a second agent says
+“looks good,” did it independently verify the work—or merely repeat the same
+confidence?
 
-Without an independent review path, the fallback can become you—arguing with the
-same terminal until the answer feels safer.
+Coding agents are good at producing answers. They should not have the authority
+to approve themselves.
 
-When another agent agrees:
+**Meaning Assurance** is a local-first, file-backed protocol that separates:
 
-**Is that evidence—or synchronized confidence?**
-
-## 你的 Coding Agent 说：“完成了。”
-
-**你真的相信吗？**
-
-在接受它之前，你会检查什么证据？
-
-如果没有独立复审路径，最后可能还是你亲自和同一个终端争论，直到答案听起来
-更让人安心。
-
-当另一个 Agent 也表示同意：
-
-**那是证据，还是同步的自信？**
-
-## Agents are good at producing answers.
-
-## They should not have the authority to approve themselves.
-
-## Agent 擅长生产答案，
-
-## 但不应该拥有批准自己的权力。
-
-**Meaning Assurance is a local, file-backed assurance protocol for coding agents.**
-
-It delegates bounded execution, preserves review evidence, exposes material
-disagreement, and keeps final acceptance under human control.
-
-**Meaning Assurance 是一套本地、文件化的 Coding Agent assurance 协议。**
-
-它让有边界的执行可以被委托，保留可复查证据，让重要分歧显性化，并把最终
-接受权留给人类。
+- what a worker claims;
+- what the frozen evidence shows;
+- what a reviewer challenges;
+- what a moderator can verify; and
+- what a human finally accepts.
 
 > **Agents propose. Evidence is verified. Humans decide what to accept.**
->
-> **Agent 提出结果，证据接受核验，人类决定是否采纳。**
 
-[See how it works](#how-it-works) · [Read a real strategy audit](#a-real-strategy-discussion-and-read-only-audit) · [Inspect the evidence trail](#review-protocol) · [Install](#install)
+No hosted control plane · No stored provider API keys · No automatic merge ·
+Human final authority
 
-[了解工作机制](#how-it-works) · [阅读真实战略审计](#a-real-strategy-discussion-and-read-only-audit) · [检查证据链](#review-protocol) · [安装](#install)
+## See the decision trail in one command
 
-**No hosted control plane · No stored provider API keys · No automatic merge · Human final authority**
+Clone the repository, then run:
 
-**无托管控制面 · 不保存供应商 API Key · 不自动合并 · 人类保留最终决定权**
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Run-Demo.ps1
+```
 
-## What Is Meaning Assurance?
+The deterministic demo:
 
-Meaning Assurance is not a new coding agent or a model-voting system. It is an
-assurance layer around coding-agent delegation: the work is bounded, the material
-reviewers inspect can be frozen, disagreement remains visible, and no agent can
-accept its own output.
+- needs no API key and launches no external agent;
+- does not modify an existing repository;
+- copies a fixed evidence packet into a new temporary output folder;
+- shows one worker claim, four reviewer findings, moderation outcomes, and a
+  human-controlled final state; and
+- writes SHA-256 hashes so the copied evidence can be checked.
 
-Meaning Assurance 不是新的 Coding Agent，也不是模型投票系统。它是在 Coding
-Agent 委托周围增加的 assurance layer：工作范围受到约束，Reviewer 检查的
-材料可以被冻结，分歧保持可见，并且任何 Agent 都不能接受自己的输出。
+Expected decision summary:
 
-| Question / 问题 | Answer / 回答 |
-|---|---|
-| What is it? / 它是什么？ | A local, file-backed assurance protocol for coding agents. / 一套本地、文件化的 Coding Agent assurance 协议。 |
-| Why does it exist? / 为什么存在？ | Agent output and agent agreement are not by themselves verified evidence. / Agent 输出和 Agent 一致意见本身都不是经过核验的证据。 |
-| How does it work? / 如何工作？ | Bounded tasks, isolated worktrees, frozen evidence, independent challenge, visible disagreement, and human acceptance. / 有边界任务、隔离 worktree、冻结证据、独立挑战、显性分歧和人工接受。 |
-| What are the boundaries? / 边界是什么？ | No self-approval, no automatic merge, no OS-sandbox claim, and no guarantee of correctness. / 不允许自我批准、不自动合并、不声称 OS 级沙箱，也不保证正确。 |
-| What is the brand relationship? / 品牌关系是什么？ | Meaning is the parent brand, Meaning Assurance is the product, and LEVIUS is the public author identity. / Meaning 是品牌母层，Meaning Assurance 是产品，LEVIUS 是公开作者身份。 |
+```text
+Worker claim: COMPLETE
+Evidence: one declared test is missing; one changed file is outside scope
+Review outcomes: 2 confirmed, 1 rejected, 1 not testable
+Final acceptance: BLOCKED
+```
 
-The project is a public preview. Its current implementation is Windows-first and
-PowerShell-based. It requires no server, database, message broker, separate UI,
-or hosted control plane.
+[Read the five-minute quick start](docs/QUICKSTART.md) ·
+[Inspect the demo fixture](examples/demo-fixture/README.md)
 
-项目当前处于 Public Preview，现有实现以 Windows 和 PowerShell 为主，不需要
-服务器、数据库、消息代理、独立 UI 或托管控制面。
+## Strategic planning brainstorm
 
-The mechanism is role-based rather than tied to a fixed agent trio: a controller
-creates packets and moderates evidence, workers implement bounded tasks,
-reviewers challenge results, and the human retains final authority. The current
-release packages Claude Code and Reasonix adapters and keeps some Codex-oriented
-filenames, but another controller can drive the protocol and additional agent
-runtimes can be added through new adapters.
+Meaning Assurance can also structure strategic planning before implementation.
+Instead of asking one agent for a polished plan and treating confidence as
+quality, the controller can run a bounded `strategy-review` discussion that:
 
-该机制按角色组织，不绑定固定 Agent 三件套：controller 创建任务包并裁决
-证据，worker 执行有边界任务，reviewer 挑战结果，人类保留最终决定权。当前
-版本提供 Claude Code 和 Reasonix adapter，并保留部分 Codex 取向文件名；
-其他 controller 也可以驱动同一协议，新的 Agent runtime 可通过 adapter 接入。
+- frames the decision, constraints, non-goals, and available evidence;
+- generates competing directions instead of one prematurely fixed answer;
+- asks reviewers to attack assumptions and produce counter-evidence;
+- separates facts, inferences, unknowns, and questions that still need testing;
+  and
+- records a narrowed route, rejected options, and unresolved disagreements for
+  human decision.
 
-## Why It Exists
+```text
+Strategic question
+→ competing directions
+→ adversarial questions
+→ evidence and counter-evidence
+→ narrowed route
+→ human decision
+```
 
-Running a second coding agent is easy. Keeping delegation bounded, evidence
-inspectable, retries deterministic, and final decisions under human control is
-harder.
+> **Planning boundary:** this is structured adversarial brainstorming, not
+> automatic strategy selection, market validation, or proof that the chosen
+> route will work.
 
-再启动一个 Coding Agent 很容易。难的是让委托保持边界、证据可以检查、重试
-状态确定，并把最终决定权留给人类。
+[See the real strategic-planning case](docs/cases/2026-07-25-readme-strategy-review/README.md) ·
+[Read the questions and counter-challenges](docs/cases/2026-07-25-readme-strategy-review/strategy-discussion.md)
 
-`Synchronized confidence` means agents agree without demonstrating independent
-verification. Agreement can be useful, but it is not proof by itself.
+## A real first-party evidence case
 
-“同步的自信”是指 Agent 意见一致，却没有展示独立核验。一致意见可以提供
-参考，但本身不是证明。
+Meaning Assurance has already been used to challenge the communication strategy
+of this repository. Claude Code reviewed nine frozen public files. Codex then
+challenged the review itself and recorded ten moderated outcomes:
 
-## How It Works
+```text
+5 confirmed · 2 rejected · 2 duplicate · 1 not testable
+```
 
-Meaning Assurance provides:
+That distribution matters. The case does not present agent agreement as proof.
+It preserves disagreement, rejects unsupported reviewer claims, and keeps
+acceptance outside the reviewer.
 
-- task packets with explicit scope and expected outputs;
-- isolated Git worktrees for implementation workers;
-- frozen, hashed reference snapshots for read-only review;
-- required and optional reviewer gates;
-- blind Round 1 review and targeted Round 2 challenge;
-- canonical result files and invalid-output quarantine;
-- PID-backed invocation leases to avoid duplicate workers after caller timeouts;
-- evidence-based moderation instead of model voting;
-- no automatic merge or patch application.
-
-对应机制包括：
-
-- 明确任务范围和预期输出的 task packet；
-- 为 implementation worker 创建隔离 Git worktree；
-- 为只读复审创建冻结并哈希化的 reference snapshot；
-- required 与 optional reviewer gate；
-- blind Round 1 和 targeted Round 2；
-- 规范结果文件和无效输出隔离；
-- 用 PID-backed invocation lease 防止调用方超时后重复启动 worker；
-- 基于证据的 moderation，而不是模型投票；
-- 不自动 merge 或应用 patch。
-
-Codex is the default moderator in the current file protocol, but the PowerShell
-entrypoints can be called by a human or another controller that honors the same
-artifacts and gates.
-
-## A Real Strategy Discussion and Read-Only Audit
-
-Meaning Assurance is not limited to implementation tasks. In `strategy-review`
-mode, a reviewer interrogates positioning, scope, hidden assumptions,
-counter-evidence, and falsifiers against a frozen reference set. The reviewer
-cannot edit the source material or accept its own conclusions.
-
-Meaning Assurance 不只用于实现任务。在 `strategy-review` 模式中，Reviewer 会基于
-冻结参考集追问定位、范围、隐藏假设、反证和可证伪条件；Reviewer 不能修改源材料，
-也不能批准自己的结论。
-
-This README became the subject of a real internal-dogfooding case. Claude Code
-first challenged the bilingual hero, the `Meaning Assurance` promise, the
-`synchronized confidence` concept, failure communication, and the credibility
-of publishing a self-referential case. Codex then challenged the review itself:
-unsupported search-ranking claims were rejected, a conclusion inferred from
-missing test files was marked not testable, and two low-value findings were
-withdrawn in Round 2.
-
-这份 README 本身成为了一次真实的内部 dogfooding 案例。Claude Code 先质疑双语
-首屏、`Meaning Assurance` 的承诺边界、`同步的自信` 概念、失败沟通，以及公开
-“自我审视案例”的可信度；随后 Codex 反过来审视这份审计：没有证据的搜索排序判断
-被驳回，因参考包未包含测试目录而产生的结论被标记为不可检验，两项低价值 finding
-在 Round 2 被撤回。
-
-The final record contains 10 moderated outcomes: **5 confirmed, 2 rejected,
-2 duplicate, and 1 not testable**. That distribution is the point. The case
-does not show agents agreeing; it shows disagreement being preserved and weak
-reviewer claims being constrained.
-
-最终记录包含 10 项经过裁决的结果：**5 项确认、2 项驳回、2 项重复、1 项不可
-检验**。这组分布本身就是案例重点：它展示的不是 Agent 达成一致，而是分歧被保留，
-Reviewer 过度延伸的判断受到约束。
-
-> **Case boundary:** this is an internal protocol demonstration, not a
-> third-party audit, independent validation, or evidence of product
+> **Case boundary:** this is first-party internal dogfooding. It is not a
+> third-party audit, independent validation, certification, or proof of product
 > effectiveness.
->
-> **案例边界：**这是内部协议演示，不是第三方审计、独立验证，也不是产品有效性
-> 证据。
 
-[Open the case index](docs/cases/2026-07-25-readme-strategy-review/README.md) ·
+[Open the case](docs/cases/2026-07-25-readme-strategy-review/README.md) ·
 [Read the strategy discussion](docs/cases/2026-07-25-readme-strategy-review/strategy-discussion.md) ·
 [Inspect the read-only audit](docs/cases/2026-07-25-readme-strategy-review/read-only-audit.md)
 
-[打开案例索引](docs/cases/2026-07-25-readme-strategy-review/README.md) ·
-[阅读战略讨论](docs/cases/2026-07-25-readme-strategy-review/strategy-discussion.md) ·
-[检查只读审计](docs/cases/2026-07-25-readme-strategy-review/read-only-audit.md)
+## What it changes
+
+Most coding-agent workflows combine production and judgment in the same chat:
+
+```text
+prompt → agent output → agent says “done” → human guesses whether to trust it
+```
+
+Meaning Assurance makes the boundaries explicit:
+
+```mermaid
+flowchart LR
+    H["Human sets scope"] --> P["Bounded task packet"]
+    P --> W["Worker in isolated worktree"]
+    W --> E["Frozen evidence"]
+    E --> R["Independent reviewer challenge"]
+    R --> M["Evidence-based moderation"]
+    M --> H2["Human accepts, rejects, or asks for more evidence"]
+```
+
+The protocol provides:
+
+- bounded task and discussion packets;
+- isolated Git worktrees for implementation workers;
+- frozen, inventoried, and hashed reference snapshots;
+- blind Round 1 review and targeted Round 2 challenge;
+- required and optional reviewer gates;
+- canonical result files and invalid-output quarantine;
+- PID-backed invocation leases that prevent blind duplicate retries;
+- explicit `confirmed`, `rejected`, `duplicate`, and `not-testable` outcomes;
+- visible unresolved disagreement; and
+- no automatic merge or patch application.
+
+## What it is—and is not
+
+| Meaning Assurance is | Meaning Assurance is not |
+|---|---|
+| A local protocol around coding-agent delegation | A new coding model or chat interface |
+| A way to preserve evidence and disagreement | A model-voting system |
+| A controller/worker/reviewer/human role contract | A fixed Codex–Claude–Reasonix trio |
+| A file-backed audit trail for engineering decisions | A guarantee that the final decision is correct |
+| Windows-first and PowerShell-based today | A complete operating-system sandbox |
+| Human-controlled at the acceptance boundary | An automatic merge or autonomous approval service |
+
+## Two operating paths
+
+### Read-only strategy or code review
+
+The controller freezes a bounded reference packet. Reviewers inspect copies,
+not mutable source paths. A moderator verifies findings, challenges weak
+inferences, and records a decision or escalates unresolved disagreement.
+
+### Isolated implementation
+
+An external worker receives a bounded task packet and edits only a dedicated Git
+worktree. The collector exposes canonical results and the isolated diff. Nothing
+is merged or applied automatically.
+
+[Read the protocol](docs/PROTOCOL.md) ·
+[Read the architecture](docs/ARCHITECTURE.md) ·
+[See complete synthetic workflows](docs/EXAMPLES.md)
 
 ## Requirements
 
 - Windows 10 or later
 - Windows PowerShell 5.1 or PowerShell 7
 - Git 2.20 or later
-- At least one supported CLI agent:
-  - Claude Code available on `PATH`, through `CLAUDE_CODE_EXE`, or with `-ClaudeExe`
-  - Reasonix available on `PATH`, through `REASONIX_COMMAND`, or with `-ReasonixCommand`
+- For live workflows, at least one supported CLI adapter:
+  - Claude Code through `PATH`, `CLAUDE_CODE_EXE`, or `-ClaudeExe`
+  - Reasonix through `PATH`, `REASONIX_COMMAND`, or `-ReasonixCommand`
 
-Live agent credentials remain managed by the agent CLI. Meaning Assurance does not store provider API keys.
+The deterministic demo does not need a live agent or provider credential.
 
-## Install
-
-From a local clone:
+## Install for live workflows
 
 ```powershell
 $env:AGENT_WORKBENCH_HOME = Join-Path $env:LOCALAPPDATA "AgentWorkbench"
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Install-AgentWorkbench.ps1
 ```
 
-Without `AGENT_WORKBENCH_HOME`, the installer defaults to `%LOCALAPPDATA%\AgentWorkbench`, then falls back to `$HOME\.agent-workbench`.
-
-The installer preserves existing runtime folders when upgrading:
+The installer preserves existing runtime folders:
 
 ```text
 tasks/
@@ -223,103 +202,71 @@ worktrees/
 discussions/
 ```
 
-## Quick Start: Read-Only Review
+Live agent credentials remain managed by the agent CLI. Meaning Assurance does
+not store provider API keys.
 
-```powershell
-$WorkbenchRoot = $env:AGENT_WORKBENCH_HOME
-$params = @{
-  WorkbenchRoot = $WorkbenchRoot
-  Slug = "sample-review"
-  Topic = "Review a bounded design note"
-  Question = "What assumptions are unsupported?"
-  Context = "Use only the supplied reference snapshot."
-  Mode = "strategy-review"
-  Protocol = "adversarial-discussion"
-  AuditProfile = "scientific"
-  Agents = @("claude-code")
-  ReferencePaths = @("C:\path\to\sample-design.md")
-}
+[Continue with the quick start](docs/QUICKSTART.md)
 
-$DiscussionFolder = & (Join-Path $WorkbenchRoot "scripts\New-AgentDiscussion.ps1") @params
-& (Join-Path $WorkbenchRoot "scripts\Invoke-ClaudeFeedback.ps1") `
-  -DiscussionFolder $DiscussionFolder -Round 1 -Collect
+## Public name and compatibility
+
+- **Canonical product brand:** Meaning Assurance
+- **Chinese audience-facing alias:** AI 对抗审计助手
+- **Public author identity:** LEVIUS
+- **Current repository slug:** `agent-workbench`
+
+The product name has changed before the repository slug. A future repository
+rename requires separate authorization and migration verification. Existing
+technical identifiers remain compatible:
+
+```text
+.agent-workbench
+AGENT_WORKBENCH_HOME
+Install-AgentWorkbench.ps1
+existing task, discussion, and evidence field names
 ```
 
-Reference files are copied into the discussion as frozen evidence. If the source changes, create a fresh discussion instead of reusing an old snapshot.
+Brand cleanup is not a reason to create an unnecessary breaking change. See
+[Migration and compatibility](docs/MIGRATION.md).
 
-## Quick Start: Isolated Implementation Worker
+## Privacy and trust boundaries
 
-```powershell
-$WorkbenchRoot = $env:AGENT_WORKBENCH_HOME
-$TaskFolder = & (Join-Path $WorkbenchRoot "scripts\New-AgentTask.ps1") `
-  -WorkbenchRoot $WorkbenchRoot `
-  -Slug "sample-change" `
-  -Task "Implement the requested check and add focused tests." `
-  -Context "Do not change unrelated files." `
-  -Mode implementation `
-  -TargetAgent claude-code `
-  -WorkspaceRoot "C:\path\to\git-repository"
+Runtime folders can contain prompts, source snapshots, paths, diffs, and agent
+output. Keep them outside the source checkout and inspect artifacts before
+sharing them.
 
-& (Join-Path $WorkbenchRoot "scripts\New-AgentWorktree.ps1") `
-  -WorkbenchRoot $WorkbenchRoot `
-  -TaskFolder $TaskFolder `
-  -WorkspaceRoot "C:\path\to\git-repository" `
-  -Slug "sample-change"
+Redaction is defense in depth, not a guarantee. Git worktrees isolate files but
+are not operating-system sandboxes. External CLI permissions remain controlled
+by each CLI configuration.
 
-& (Join-Path $WorkbenchRoot "scripts\Invoke-AgentTask.ps1") `
-  -TaskFolder $TaskFolder -Collect
-```
-
-The worker edits only the isolated worktree. The collector exposes the result and Git status for review; it does not merge the branch.
-
-## Review Protocol
-
-For consequential code or strategy review, `-AuditProfile scientific` adds structured findings, disagreement tracking, and explicit moderation outcomes.
-
-Important rules:
-
-- Round 1 reviewers work independently.
-- Round 2 addresses disputed, blocking, or weak-evidence findings only.
-- Missing required reviewer files block final moderation.
-- Reviewer agreement is not proof.
-- The moderator verifies evidence and records confirmed, rejected, duplicate, or not-testable outcomes.
-- Material unresolved disagreement is escalated to the user.
-
-See [Protocol](docs/PROTOCOL.md) and [Architecture](docs/ARCHITECTURE.md).
-
-Complete synthetic walkthroughs are available in [Examples](docs/EXAMPLES.md).
-
-## Privacy Model
-
-Runtime data can contain source snapshots, prompts, paths, and agent output. Keep the runtime outside the source checkout and do not commit it.
-
-Meaning Assurance redacts common secrets and local paths from selected logs, but redaction is defense in depth, not a guarantee. Review all artifacts before sharing them. See [Privacy](docs/PRIVACY.md).
+[Privacy](docs/PRIVACY.md) ·
+[Security](SECURITY.md) ·
+[Current limitations](docs/LIMITATIONS.md)
 
 ## Test
 
-The test suite uses temporary repositories and fake agent executables. It does not require live Claude Code or Reasonix sessions.
+The repository suite uses temporary repositories and fake agent executables. It
+does not require live Claude Code or Reasonix sessions.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\run-tests.ps1
 ```
 
-## Current Limitations
+PowerShell 7:
 
-- Windows and PowerShell are the only tested host environment.
-- Claude Code and Reasonix are the only formal non-interactive adapters.
-- The current canonical moderation filenames retain Codex-oriented naming.
-- A Git worktree is an isolation boundary for files, not a complete OS sandbox.
-- External CLI behavior and permissions remain subject to each CLI's configuration.
-- No UI is included.
-- No automatic merge is provided.
+```powershell
+pwsh -NoProfile -File .\tests\run-tests.ps1
+```
 
-## Project Status
+## Project status
 
-The public API is not yet stable. Breaking changes may occur before `1.0.0`.
+Meaning Assurance is a Windows-first public preview. Its public API is not yet
+stable, and breaking changes may occur before `1.0.0`.
 
-See [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [SECURITY.md](SECURITY.md).
+The v0.2.0 materials in this branch are release candidates, not a published
+Release. See [CHANGELOG.md](CHANGELOG.md) and the
+[publication boundary](docs/PUBLICATION_READINESS.md).
 
-## Author And Contact
+## Author and contact
 
 - Author ID: **LEVIUS**
 - Public contact: [agentworkbench@proton.me](mailto:agentworkbench@proton.me)
@@ -332,6 +279,6 @@ Licensed under the Apache License 2.0. See [LICENSE](LICENSE).
 
 ---
 
-**Meaning** — *Living-Seeking-Meaning.* 追寻意义的过程即使没有结果，其本身也足够有意义。
+**Meaning** — *Living-Seeking-Meaning.*
 
-> “Dedicated to all the pioneers.”——《Macross Plus》
+> “Dedicated to all the pioneers.” — *Macross Plus*

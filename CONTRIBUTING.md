@@ -1,6 +1,10 @@
 # Contributing
 
-Thank you for considering a contribution to Agent Workbench.
+Thank you for considering a contribution to Meaning Assurance.
+
+The public product brand is Meaning Assurance. Existing script names,
+environment variables, and protocol fields may retain the Agent Workbench name
+for compatibility; do not rename them without a separately reviewed migration.
 
 ## Development Setup
 
