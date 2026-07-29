@@ -16,7 +16,7 @@ original audited revision remains recorded below.
 
 ## Audit baseline
 
-- Repository: `https://github.com/leviuszen/agent-workbench`
+- Repository: `https://github.com/leviuszen/meaning-assurance`
 - Source of truth: the public checkout at the audited revision
 - Audited revision: `acecf5977fc78f895b1e73f573a2d4957aae532b`
 - Public release: `v0.1.0` Public Preview
@@ -331,7 +331,7 @@ README 实施。
 
 ## 审计基线
 
-- 仓库：`https://github.com/leviuszen/agent-workbench`
+- 仓库：`https://github.com/leviuszen/meaning-assurance`
 - 事实来源：审计版本对应的公开 checkout
 - 审计版本：`acecf5977fc78f895b1e73f573a2d4957aae532b`
 - 公开号：`v0.1.0` Public Preview

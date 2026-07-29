@@ -34,7 +34,7 @@ I am not asking for a star or promotion. If the mechanism is relevant to your
 work, would you be willing to run the credential-free deterministic demo and
 challenge one question: what evidence boundary is still missing or misleading?
 
-Repository: <FINAL_REPOSITORY_URL>
+Repository: https://github.com/leviuszen/meaning-assurance
 Demo: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Run-Demo.ps1
 
 Current limits: Windows/PowerShell only, first-party evidence case, no guarantee

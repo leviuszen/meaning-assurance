@@ -39,7 +39,7 @@ Assert ($release.Contains("role protocol, not a fixed agent trio")) "English rel
 Assert ($release -match 'formal\s+non-interactive adapters') "English release must distinguish implemented adapters."
 Assert ($release.Contains("decision trail in one command")) "English release must foreground the deterministic demo."
 Assert ($release.Contains("real first-party evidence case")) "English release must include the bounded real case."
-Assert ($release.Contains("Release candidate")) "English release must preserve candidate status."
+Assert (-not $release.Contains("Release candidate")) "English release must not retain candidate status."
 $nonAsciiCount = [regex]::Matches($releaseZh, '[^\x00-\x7F]').Count
 Assert ($nonAsciiCount -gt 1000) "Chinese release does not contain enough Chinese-language content."
 Assert ($releaseZh -match '(?i)adapter') "Chinese release must preserve adapter boundaries."
@@ -57,12 +57,12 @@ foreach ($documentContent in @($readme, $release, $releaseZh, $authors)) {
 Assert ($security.Contains("agentworkbench@proton.me")) "Security policy is missing the fallback contact email."
 Assert ($publishing.Contains("Gitleaks")) "Publication readiness must retain the full-history secret-scan gate."
 Assert ($publishing.Contains("PowerShell 7")) "Publication readiness must retain the PowerShell 7 CI gate."
-Assert ($publishing.Contains("External actions still requiring explicit approval")) "Publication readiness must preserve the external publication gate."
+Assert ($publishing.Contains("Publication authorization and receipts")) "Publication readiness must record the authorized publication gate."
 Assert ($examples.Contains("needs_codex_decision")) "Examples must preserve the final moderator decision gate."
 Assert ($examples.Contains("create a fresh discussion")) "Examples must explain frozen snapshot freshness."
 
 $testCount = @(Get-ChildItem -LiteralPath (Join-Path $repoRoot "tests") -Filter "test-*.ps1" -File).Count
-Assert ($release.Contains("All $testCount repository tests pass locally")) "Release test count does not match the repository suite."
+Assert ($release.Contains("All $testCount repository tests pass under")) "Release test count does not match the repository suite."
 $zhTestLines = @($releaseZh -split '\r?\n' | Where-Object { $_ -match 'Windows PowerShell 5\.1' })
 Assert ($zhTestLines.Count -ge 1) "Chinese release does not contain a Windows PowerShell 5.1 verification line."
 Assert (($zhTestLines -join "`n").Contains($testCount.ToString())) "Chinese release test count does not match the repository suite."

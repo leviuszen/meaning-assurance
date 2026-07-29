@@ -1,13 +1,10 @@
 # Meaning Assurance v0.2.0 — 公开预览版
 
-> **发布候选：**本文件用于准备未来 Release，不表示 `v0.2.0` 已经打 Tag 或公开
-> 发布。
-
 **Meaning Assurance（AI 对抗审计助手）**是一套本地优先、以文件为载体的协议，
 用于把 Coding Agent 的完成主张与冻结证据、独立挑战、经过裁决的 Finding 和人工
 接受分离开来。
 
-English release candidate: [Meaning Assurance v0.2.0 — Public Preview](RELEASE_v0.2.0.md)
+English release notes: [Meaning Assurance v0.2.0 — Public Preview](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/.github/RELEASE_v0.2.0.md)
 
 ## 你的 Coding Agent 说“完成了”，它留下了什么证据？
 
@@ -110,16 +107,16 @@ powershell -NoProfile -ExecutionPolicy Bypass `
 
 ## 验证状态
 
-当前本地候选状态：
+本版本验证状态：
 
-- Windows PowerShell 5.1 下 17 项仓库测试全部通过。
-- PowerShell 7.6.3 下 17 项仓库测试全部通过。
+- Windows PowerShell 5.1 下 18 项仓库测试全部通过。
+- PowerShell 7 下 18 项仓库测试全部通过。
 - 确定性 Demo 已在两个 PowerShell 版本下通过冷启动与禁止覆盖测试。
 - Gitleaks 8.30.1 对完整可达 Git 历史和当前工作树的扫描均未发现泄漏。
 - 公开邮箱、私人路径、双语、链接与主张追溯检查均在本地通过。
 
-这些内容属于候选证据，不表示 Release 已经通过 GitHub 渲染终检与最终发布门。
-参见[本地验证记录](../docs/TURNAROUND_VERIFICATION_2026-07-28.md)。
+这些内容属于有边界的验证证据，不是独立验证，也不保证协议一定产生正确决定。
+参见[验证记录](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/docs/TURNAROUND_VERIFICATION_2026-07-28.md)。
 
 ## 重要边界
 
@@ -130,8 +127,9 @@ powershell -NoProfile -ExecutionPolicy Bypass `
 - 协议不保证代码或决定正确。
 - 不包含 UI、托管控制面、自动合并、遥测服务或供应商 Key 存储。
 
-参见[当前限制](../docs/LIMITATIONS.md)、[隐私说明](../docs/PRIVACY.md)和
-[安全策略](../SECURITY.md)。
+参见[当前限制](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/docs/LIMITATIONS.md)、
+[隐私说明](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/docs/PRIVACY.md)和
+[安全策略](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/SECURITY.md)。
 
 ## 作者与联系
 

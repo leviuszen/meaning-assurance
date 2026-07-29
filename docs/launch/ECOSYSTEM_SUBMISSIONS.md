@@ -12,7 +12,7 @@ or autonomous merge bot.
 ## Candidate one-line entry
 
 ```markdown
-- [Meaning Assurance](<FINAL_REPOSITORY_URL>) — A local-first, file-backed protocol for bounded coding-agent work, frozen review evidence, adversarial findings, and human-controlled acceptance.
+- [Meaning Assurance](https://github.com/leviuszen/meaning-assurance) — A local-first, file-backed protocol for bounded coding-agent work, frozen review evidence, adversarial findings, and human-controlled acceptance.
 ```
 
 ## Candidate targets

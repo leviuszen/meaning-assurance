@@ -63,7 +63,7 @@ Final acceptance: BLOCKED
 - 仓库中的真实案例属于第一方 dogfooding；
 - 协议不保证代码或决定正确。
 
-仓库：`<最终仓库地址>`
+仓库：<https://github.com/leviuszen/meaning-assurance>
 
 我更希望讨论机制本身，而不是求 Star：如果是你的真实任务，在接受 Coding Agent
 结果前，你还会要求什么证据？Reviewer 又有哪些常见越界方式？
@@ -73,6 +73,6 @@ Final acceptance: BLOCKED
 - 确认候选渠道仍然存在且适合本帖。
 - 根据最终内容选择当前允许此类技术讨论的节点。
 - 重新阅读节点与全站规则。
-- 替换仓库地址。
+- 确认仓库地址与 Demo 命令可访问。
 - 确认 Demo 可从干净 Clone 运行。
 - 不写成只有链接的推广帖。

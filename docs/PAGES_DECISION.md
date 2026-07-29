@@ -1,45 +1,41 @@
 # GitHub Pages Decision / GitHub Pages 决定
 
-**Status:** deferred from the v0.2.0 release candidate.
+**Status:** authorized and implemented for the v0.2.0 launch.
 
-**状态：**不纳入 v0.2.0 发布候选。
+**状态：**已授权，并在 v0.2.0 发布窗口实施。
 
-## Reason / 原因
+## Purpose / 用途
 
-The v0.2.0 first-contact path is already complete in the repository:
+The repository slug is final. The Pages site is a small static discovery,
+sharing, and measurement entry that links back to versioned repository facts.
+It does not introduce a framework, CMS, database, hosted control plane, or
+second product backend.
 
-v0.2.0 的首次接触路径已经在仓库内完整形成：
+仓库 slug 已经确定。Pages 仅作为轻量静态发现、分享与测量入口，并链接回仓库中
+受版本控制的事实来源；它不引入框架、CMS、数据库、托管控制面或第二套产品后端。
 
-```text
-problem-first README
-→ deterministic one-command demo
-→ real first-party evidence case
-→ protocol and limitations
-→ native launch drafts
-```
+## Implemented boundary / 实施边界
 
-Adding Pages before the repository-rename decision would create a second public
-URL and a second copy of the same facts. The project Pages URL also depends on
-the final repository slug. Building it now would increase migration and
-maintenance work without adding a distinct proof or activation path.
+The implementation:
 
-在仓库改名决定前增加 Pages，会产生第二个公开 URL 和第二份相同事实来源；项目
-Pages URL 还依赖最终仓库 slug。现在建设会增加迁移与维护成本，却不会增加新的
-证明或激活路径。
+- uses plain HTML and CSS under `site/`;
+- provides English and Simplified Chinese entry pages;
+- exposes the no-key demo and bounded first-party strategy-review case;
+- uses the repository README, Release, protocol, and limitations as canonical
+  sources;
+- provides canonical, hreflang, Open Graph, robots, and sitemap metadata; and
+- deploys through the official GitHub Pages Actions workflow.
 
-## Revisit conditions / 重新评估条件
+本次实施：
 
-Reconsider a static Pages entry only when:
+- 使用 `site/` 下的纯 HTML 与 CSS；
+- 提供英文和简体中文入口；
+- 公开无需 Key 的 Demo 与有边界的第一方战略复审案例；
+- 以仓库 README、Release、协议和限制说明为事实来源；
+- 提供 canonical、hreflang、Open Graph、robots 与 sitemap 元数据；
+- 通过 GitHub Pages 官方 Actions 工作流部署。
 
-仅在以下条件满足后重新评估静态 Pages：
+Pages improves search intake and link sharing. It does not itself create
+audience demand or guarantee indexing or ranking.
 
-- the repository slug is final;
-- README analytics or community feedback show that GitHub is a material
-  first-contact barrier;
-- the page can reuse repository assets without a second content source;
-- no framework or complex build pipeline is introduced; and
-- the page can be built and verified within half a day.
-
-Deferral does not block the local v0.2.0 candidate.
-
-后置 Pages 不阻挡本地 v0.2.0 候选。
+Pages 改善搜索承接与链接分享，但本身不会创造受众需求，也不保证收录或排名。

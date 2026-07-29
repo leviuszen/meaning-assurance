@@ -1,13 +1,10 @@
 # Meaning Assurance v0.2.0 — Public Preview
 
-> **Release candidate:** this file prepares a future Release. It does not mean
-> that `v0.2.0` has been tagged or published.
-
 **Meaning Assurance** is a local-first, file-backed protocol for separating a
 coding agent's completion claim from frozen evidence, independent challenge,
 moderated findings, and human acceptance.
 
-简体中文发布候选：[Meaning Assurance v0.2.0 — 公开预览版](RELEASE_v0.2.0.zh-CN.md)
+简体中文发布说明：[Meaning Assurance v0.2.0 — 公开预览版](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/.github/RELEASE_v0.2.0.zh-CN.md)
 
 ## Your coding agent says “done.” What evidence did it leave?
 
@@ -121,10 +118,10 @@ does not store provider API keys.
 
 ## Verification status
 
-At the current local candidate:
+For this release:
 
-- All 17 repository tests pass locally under Windows PowerShell 5.1.
-- All 17 repository tests pass locally under PowerShell 7.6.3.
+- All 18 repository tests pass under Windows PowerShell 5.1.
+- All 18 repository tests pass under PowerShell 7.
 - The deterministic demo passes cold-start and no-overwrite tests under both
   PowerShell versions.
 - Gitleaks 8.30.1 reports no leaks in the complete reachable Git history or the
@@ -132,9 +129,9 @@ At the current local candidate:
 - Public-email, private-path, bilingual, link, and claim-traceability checks
   pass locally.
 
-These statements are candidate evidence, not a claim that the Release has
-already passed its final rendered-GitHub and publication gates. See the
-[local verification record](../docs/TURNAROUND_VERIFICATION_2026-07-28.md).
+These statements are bounded verification evidence, not independent validation
+or a guarantee that the protocol produces a correct decision. See the
+[verification record](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/docs/TURNAROUND_VERIFICATION_2026-07-28.md).
 
 ## Important boundaries
 
@@ -147,8 +144,9 @@ already passed its final rendered-GitHub and publication gates. See the
 - No UI, hosted control plane, automatic merge, telemetry service, or provider
   key store is included.
 
-See [Current Limitations](../docs/LIMITATIONS.md),
-[Privacy](../docs/PRIVACY.md), and [Security](../SECURITY.md).
+See [Current Limitations](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/docs/LIMITATIONS.md),
+[Privacy](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/docs/PRIVACY.md),
+and [Security](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/SECURITY.md).
 
 ## Author and contact
 
