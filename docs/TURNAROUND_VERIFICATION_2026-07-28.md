@@ -89,6 +89,39 @@ remain local and are not part of the public candidate.
 这是外部模型对抗审计证据，不是第三方独立验证、认证或产品有效性证明。审计记录
 保留在本地，不属于公开候选内容。
 
+## 2026-07-29 pre-merge delta verification / 合并前增量验证
+
+The final Draft PR snapshot at
+`a6a55d3166845c43e5d5fb5b598c8d6d980d1ae9` was verified again after the last
+README and turnaround-asset edits:
+
+- Windows PowerShell 5.1: all 17 repository tests passed locally.
+- PowerShell 7: both current Draft PR CI runs passed on the same commit.
+- Gitleaks 8.30.1: no leaks in all 7 reachable commits or the working tree.
+- `git diff --check`: no whitespace errors.
+- The repository contains exactly 17 files under `tests/test-*.ps1`.
+- A new frozen-snapshot, read-only adversarial audit found no blocking
+  correctness, privacy, or misleading-claim defect.
+
+The audit also identified two publication-time checks: use absolute repository
+URLs in the GitHub Release body, and replace every launch-draft URL placeholder
+after the final repository slug exists. These are release gates, not evidence
+that the candidate has already been published.
+
+在最后一次 README 与传播资产编辑后，Draft PR 最终快照
+`a6a55d3166845c43e5d5fb5b598c8d6d980d1ae9` 已重新验证：
+
+- Windows PowerShell 5.1 本地 17 项仓库测试全部通过。
+- PowerShell 7 针对同一提交的两次当前 Draft PR CI 均通过。
+- Gitleaks 8.30.1 扫描全部 7 个可达提交与工作树，均未发现泄漏。
+- `git diff --check` 未发现空白错误。
+- `tests/test-*.ps1` 下的测试文件数量确认为 17。
+- 新的冻结快照只读对抗审计未发现正确性、隐私或误导性主张阻断项。
+
+审计同时提出两个发布时检查：GitHub Release 正文应使用绝对仓库 URL；仓库最终
+slug 确定后，应替换全部传播草稿 URL 占位符。这些是发布门禁，不表示候选已经
+完成公开发布。
+
 ## Deliberately deferred / 明确后置
 
 - GitHub-rendered link and layout review
