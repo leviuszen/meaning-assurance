@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible Agent Workbench defect using synthetic data.
+description: Report a reproducible Meaning Assurance defect using synthetic data.
 title: "[Bug]: "
 labels:
   - bug

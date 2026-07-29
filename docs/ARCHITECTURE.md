@@ -1,6 +1,7 @@
 # Architecture
 
-Agent Workbench separates public source code from private runtime artifacts.
+Meaning Assurance separates public source code from private runtime artifacts.
+Some runtime identifiers retain the Agent Workbench name for compatibility.
 
 ```text
 source checkout

@@ -4,6 +4,42 @@ This document explains how to market Meaning Assurance without turning current i
 
 本文用于说明如何宣传 Meaning Assurance，同时避免把当前实现中的 Agent 组合误当成产品本体，也避免作出超过现有证据的承诺。
 
+## TURNAROUND-01 Execution Decision / TURNAROUND-01 执行决定
+
+The v0.2.0 candidate changes the communication objective from incremental
+message testing to a bounded full-chain relaunch. Identity, first-contact copy,
+proof assets, deterministic activation, Release materials, and native channel
+drafts are built in parallel. Measurement remains useful, but it does not block
+the local build.
+
+v0.2.0 候选将传播目标从渐进式文案测试切换为有边界的全链路重启。身份、首次
+接触文案、证据资产、确定性激活、Release 材料和渠道原生稿并行构建；度量仍然
+有价值，但不阻挡本地实施。
+
+The relaunch does not expand the product kernel. It does not add a UI, hosted
+service, automatic merge, new provider support, telemetry, or a correctness
+guarantee.
+
+本次重启不扩大产品内核，不新增 UI、托管服务、自动合并、新供应商支持、遥测或
+正确性保证。
+
+Primary launch message:
+
+核心发布信息：
+
+> Your coding agent says “done.” What evidence did it leave?
+>
+> 你的 Coding Agent 说“完成了”。它留下了什么证据？
+
+The proof path is fixed:
+
+证明路径固定为：
+
+```text
+problem hook → deterministic demo → real first-party audit
+→ protocol boundaries → install → human acceptance
+```
+
 ## Positioning Decision / 定位结论
 
 Do not lead with "Codex calls Claude Code and Reasonix." Lead with the governed collaboration mechanism:

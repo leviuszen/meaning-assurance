@@ -9,6 +9,34 @@
 > 这是内部 dogfooding 讨论的整理记录。它展示复审过程，不证明产品有效，也不构成
 > 外部独立验证。
 
+## 0. Brainstorming Frame / 头脑风暴定位
+
+This was a structured strategic-planning brainstorm before it became an audit.
+The purpose was to generate competing communication routes, expose assumptions,
+and turn open-ended ideas into questions that could be challenged against
+frozen evidence. It was not a request for one model to produce the final
+strategy.
+
+这首先是一场结构化的战略规划头脑风暴，之后才进入审计。它用于生成相互竞争的
+传播路线、暴露隐藏假设，并把开放想法转化为能够依据冻结证据接受挑战的问题；
+它不是让一个模型直接给出最终战略。
+
+The planning output was deliberately separated into:
+
+- candidate directions;
+- adversarial questions;
+- facts, inferences, and unknowns;
+- proposals to adopt, revise, reject, or test later; and
+- a final decision reserved for the human.
+
+规划输出被有意拆分为：
+
+- 候选方向；
+- 对抗性追问；
+- 事实、推断与未知项；
+- 当前采纳、修订、驳回或留待验证的方案；
+- 保留给人类的最终决定。
+
 ## 1. Strategic Question / 战略问题
 
 The frozen README used a new reader-facing product promise, `Meaning Assurance

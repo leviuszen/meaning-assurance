@@ -64,6 +64,26 @@ No confirmed public-release defects are recorded yet.
 - Verification: The rebuilt repository started from one clean root commit, the superseded commit URL returns not found, and both local history scanning and GitHub Actions validate the new history gate.
 - Compatibility impact: Release-process and test-only hardening; runtime behavior is unchanged.
 
+## Fixed Before 0.2.0
+
+## 2026-07-28 - Markdown backticks broke a PowerShell assertion
+
+- Affected version: local `v0.2.0` candidate only
+- Symptom: Windows PowerShell 5.1 reported cascading parser errors in the deterministic demo test.
+- Root cause: A Markdown code span was placed inside a double-quoted PowerShell string, allowing the closing backtick to escape the string terminator.
+- Fix or mitigation: Use a single-quoted literal for Markdown text that contains backticks.
+- Verification: The test file passes a PowerShell parser check and `test-run-demo.ps1` passes under Windows PowerShell 5.1.
+- Compatibility impact: Test-only correction; no runtime behavior changed.
+
+## 2026-07-28 - Public demo summaries did not match script stdout
+
+- Affected version: local `v0.2.0` candidate only
+- Symptom: README, Release, and launch drafts presented a demo-output block containing a line and labels that `Run-Demo.ps1` did not emit; the README also named only one of two confirmed evidence gaps.
+- Root cause: Public summaries and script output were written separately without one canonical-output regression.
+- Fix or mitigation: Add the complete evidence line to demo stdout, use the same exact summary in every public asset, and assert both stdout and all summary copies in tests.
+- Verification: `test-run-demo.ps1` checks the four canonical output lines, and `test-turnaround-assets.ps1` checks the evidence and review lines across all seven public summary locations.
+- Compatibility impact: The deterministic demo now emits one additional explanatory line; evidence files and final decision semantics are unchanged.
+
 ## Record Format
 
 ```markdown

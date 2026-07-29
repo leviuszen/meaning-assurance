@@ -1,77 +1,137 @@
-# Publication Readiness
+# v0.2.0 Publication Readiness / v0.2.0 发布准备
 
-This document separates local release preparation from actions that expose the repository externally.
+This document separates the authorized TURNAROUND-01 local build from actions
+that change GitHub or expose material externally.
 
-## Public Identity
+本文将已授权的 TURNAROUND-01 本地构建，与修改 GitHub 或对外公开材料的动作分开。
 
-- Project: **Agent Workbench**
+## Candidate identity / 候选身份
+
+- Product: **Meaning Assurance**
+- Chinese audience-facing alias: **AI 对抗审计助手**
 - Author ID: **LEVIUS**
 - Public contact: [agentworkbench@proton.me](mailto:agentworkbench@proton.me)
 - License: Apache License 2.0
-- Release: `v0.1.0` Public Preview
+- Current public Release: `v0.1.0`
+- Local candidate: `v0.2.0`
+- Current repository slug: `agent-workbench`
+- Proposed future slug: `meaning-assurance` — not authorized
+- Local verification record:
+  [TURNAROUND_VERIFICATION_2026-07-28.md](TURNAROUND_VERIFICATION_2026-07-28.md)
 
-Suggested GitHub description:
+## Local build scope / 本地构建范围
 
-> A lightweight, local-first protocol for coordinating replaceable coding agents with bounded workers, adversarial review, frozen evidence, and human-controlled decisions.
+The authorized local build may prepare:
 
-Suggested topics:
+已授权本地构建可以准备：
 
-```text
-ai-agents
-agent-orchestration
-coding-agents
-multi-agent
-local-first
-code-review
-git-worktree
-powershell
-claude-code
-human-in-the-loop
-```
+- English and Simplified Chinese README files;
+- quick start, limitations, migration, privacy, and claim-traceability docs;
+- a credential-free deterministic demo and its tests;
+- a first-party evidence case and explicit case boundaries;
+- `v0.2.0` Release candidates;
+- Social Preview source artwork;
+- native launch drafts for selected channels;
+- repository-rename migration checks; and
+- local test, secret, privacy, path, link, and claim audits.
 
-## Completed Locally
+Preparing these artifacts does not authorize any external action.
 
-- Clean public Git history with a public no-reply commit email.
-- Apache License 2.0, contribution guide, security policy, bug log, and changelog.
-- English and Simplified Chinese release drafts.
-- Role-based positioning that does not bind the mechanism to one fixed agent trio.
-- Synthetic examples without private task or discussion transcripts.
-- Windows CI definitions for Windows PowerShell 5.1 and PowerShell 7.
-- Public documentation, example, source-boundary, and privacy tests.
-- Public author ID and contact channel.
+准备这些产物不授权任何外部动作。
 
-## Required Before Public Release
+## Day 6 blocking gate / 第 6 天阻断门
 
-1. Confirm the exact GitHub owner, repository name, and initial visibility.
-2. Confirm the `2026-07-21` release date in `CHANGELOG.md` still matches the publication date.
-3. Run a maintained secret scanner such as Gitleaks against the working tree and complete Git history.
-4. Create a GitHub repository and push only after explicit publication approval.
-5. Prefer a private staging repository first; confirm both Windows PowerShell 5.1 and PowerShell 7 CI jobs pass against the pushed commit.
-6. Confirm the GitHub-rendered README, English release body, Chinese release body, code blocks, and relative links.
-7. Enable branch protection, push protection, and private vulnerability reporting when available.
-8. Confirm issue labels and the bug-report form work as intended.
-9. Change visibility to public only after the private staging checks pass and the owner approves the exact destination.
-10. Create the signed or annotated `v0.1.0` tag from the verified commit, then publish the GitHub Release using the selected language body.
+Every blocking item must pass before a public-release recommendation.
 
-## Language Options
+必须全部通过以下阻断项，才能提出公开发布建议。
 
-GitHub provides one main body per Release. Choose one of these launch patterns:
+### Brand and bilingual parity / 品牌与双语一致性
 
-- English body as the primary Release, with a link to the Chinese version in the repository.
-- Chinese body as the primary Release, with a link to the English version in the repository.
-- A short bilingual summary in the Release followed by links to both full drafts.
+- `README.md` uses Meaning Assurance as the canonical English brand.
+- `README.zh-CN.md` is a complete Simplified Chinese counterpart.
+- The first Chinese reference is `Meaning Assurance（AI 对抗审计助手）`.
+- Chinese text does not expand English claims; English text does not omit
+  Chinese limitations.
+- Historical compatibility identifiers remain clearly classified.
 
-For a globally discoverable first release, the recommended default is an English primary body with a short Chinese summary and a direct link to `.github/RELEASE_v0.1.0.zh-CN.md` after the final repository URL is known.
+### Runtime and demo / 运行与 Demo
 
-## Optional Launch Polish
+- Current complete repository suite passes under Windows PowerShell 5.1.
+- Current complete repository suite passes under PowerShell 7.
+- The deterministic demo runs in a clean environment.
+- The demo requires no provider key or live agent.
+- The demo refuses to overwrite an existing output directory.
+- The demo does not modify the source repository or an existing user project.
+- Every PowerShell command published in README and Release materials is parsed
+  and, where practical, executed.
 
-- Add a simple repository social-preview image after the positioning is stable.
-- Record a short synthetic terminal demonstration of one review flow and one isolated worker flow.
-- Add a feature-request issue template if community demand appears.
-- Enable GitHub Discussions only if there is enough traffic to justify a separate discussion surface.
+### Security and privacy / 安全与隐私
 
-These items are optional. They should not delay publication of a verified public preview.
+- Gitleaks scans the working tree and complete reachable Git history.
+- Public files contain only approved public email addresses or
+  `@example.invalid` fixtures.
+- Public files and reachable history contain no private user-profile path,
+  unrelated workspace path, secret, token, or private project identifier.
+- Case redaction retains the original finding meaning and records its limits.
+- No private runtime folder is included.
 
-## Publication Boundary
+### Evidence and claims / 证据与主张
 
-Creating a remote, pushing commits, changing visibility, creating a tag on GitHub, or publishing a Release are external actions. None of them are authorized by preparing this document. Each requires explicit approval of the destination and action.
+- Every material capability claim maps to code, tests, or bounded documentation.
+- The real case is labeled first-party internal dogfooding.
+- The deterministic demo is labeled synthetic.
+- No adoption, conversion, ranking, performance, demand, certification, or
+  independent-validation claim is made without current traceable evidence.
+- `v0.2.0` is described as a candidate until the Tag and Release exist.
+
+### Migration and links / 迁移与链接
+
+- All internal links resolve in the candidate tree.
+- Old repository URL occurrences are classified before rename.
+- After an authorized rename, old and new web URLs, clean Clone, existing-remote
+  Fetch, Tag, Release, Badge, raw link, Actions reference, and Pages behavior
+  are verified.
+- Pages is optional and cannot block release if it was explicitly downgraded
+  before the gate.
+
+## Conditional Pages rule / Pages 条件规则
+
+Pages may remain in the candidate only if it:
+
+只有同时满足以下条件，Pages 才保留在候选范围内：
+
+- reuses README, case, demo, and mechanism assets;
+- creates no second factual source;
+- introduces no framework or complex build chain;
+- can be completed and verified within half a day;
+- does not delay README, demo, case, tests, or Release; and
+- has a clear post-rename URL.
+
+Otherwise Pages is deferred without blocking `v0.2.0`.
+
+否则 Pages 后置，不阻挡 `v0.2.0`。
+
+Current local decision: [Pages is deferred](PAGES_DECISION.md).
+
+## External actions still requiring explicit approval / 仍需明确授权的外部动作
+
+The following remain unauthorized:
+
+以下动作仍未授权：
+
+1. push a branch;
+2. open a Pull Request;
+3. merge to `main`;
+4. rename the repository;
+5. change About, Topics, Social Preview, homepage, branch rules, or other
+   GitHub settings;
+6. enable or publish GitHub Pages;
+7. create the `v0.2.0` Tag or Release;
+8. publish to Show HN, Reddit, V2EX, Zhihu, or another community;
+9. submit an ecosystem-directory Pull Request; or
+10. contact any person or organization.
+
+The local candidate may contain drafts and migration instructions for these
+actions. Drafts are not delivery receipts.
+
+本地候选可以包含这些动作的草稿和迁移说明，但草稿不是已经发布或送达的证据。

@@ -1,0 +1,12 @@
+{
+  "schema": "meaning-assurance.demo-change-evidence.v1",
+  "task_id": "bounded-validation-review-v1",
+  "changed_files": [
+    "scripts/Validate-Config.ps1",
+    "tests/test-validate-config.ps1",
+    "docs/implementation-note.md"
+  ],
+  "out_of_scope_files": [
+    "docs/implementation-note.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "meaning-assurance.demo-moderation.v1",
+  "task_id": "bounded-validation-review-v1",
+  "outcomes": [
+    {
+      "finding_id": "DEMO-001",
+      "outcome": "confirmed",
+      "reason": "Frozen test evidence lists one required check as missing."
+    },
+    {
+      "finding_id": "DEMO-002",
+      "outcome": "confirmed",
+      "reason": "Frozen change evidence lists one file outside allowed_files."
+    },
+    {
+      "finding_id": "DEMO-003",
+      "outcome": "rejected",
+      "reason": "Two tests are recorded as passed; the reviewer overstated the gap."
+    },
+    {
+      "finding_id": "DEMO-004",
+      "outcome": "not-testable",
+      "reason": "The packet contains no performance measurement."
+    }
+  ],
+  "counts": {
+    "confirmed": 2,
+    "rejected": 1,
+    "duplicate": 0,
+    "not_testable": 1
+  },
+  "automatic_acceptance": false
+}

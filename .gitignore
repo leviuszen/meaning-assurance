@@ -21,6 +21,7 @@ reasonix.toml
 *.bak
 /test-results/
 /release-audit/
+/demo-output/
 
 # Editors and operating systems
 .vscode/

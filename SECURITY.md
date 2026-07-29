@@ -2,7 +2,8 @@
 
 ## Supported Versions
 
-Agent Workbench is currently a public preview. Security fixes are applied to the latest revision only.
+Meaning Assurance is currently a public preview. Security fixes are applied to
+the latest revision only.
 
 ## Reporting A Vulnerability
 
@@ -10,11 +11,16 @@ Do not open a public issue containing credentials, private source code, personal
 
 Use GitHub private vulnerability reporting when it is available for the repository. Include a minimal reproduction with synthetic data.
 
-If private vulnerability reporting is unavailable, contact [agentworkbench@proton.me](mailto:agentworkbench@proton.me) with the subject `[Agent Workbench Security]`. Email is not an encrypted channel; do not include live credentials, private source code, or unnecessary sensitive artifacts.
+If private vulnerability reporting is unavailable, contact
+[agentworkbench@proton.me](mailto:agentworkbench@proton.me) with the subject
+`[Meaning Assurance Security]`. Email is not an encrypted channel; do not
+include live credentials, private source code, or unnecessary sensitive
+artifacts.
 
 ## Security Boundaries
 
-- Agent Workbench is a local orchestration and evidence harness, not an OS sandbox.
+- Meaning Assurance is a local orchestration and evidence protocol, not an OS
+  sandbox.
 - Git worktrees isolate repository changes but do not prevent a CLI process from accessing resources allowed by the operating system.
 - Each external CLI retains its own authentication, permissions, network access, and model-provider behavior.
 - Redaction reduces accidental disclosure but cannot guarantee removal of every sensitive value.

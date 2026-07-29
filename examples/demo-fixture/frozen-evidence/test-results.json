@@ -1,0 +1,19 @@
+{
+  "schema": "meaning-assurance.demo-test-evidence.v1",
+  "task_id": "bounded-validation-review-v1",
+  "expected_check_count": 3,
+  "observed_check_count": 2,
+  "checks": [
+    {
+      "name": "rejects empty value",
+      "status": "passed"
+    },
+    {
+      "name": "accepts valid value",
+      "status": "passed"
+    }
+  ],
+  "missing_checks": [
+    "preserves existing default behavior"
+  ]
+}

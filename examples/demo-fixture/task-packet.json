@@ -1,0 +1,16 @@
+{
+  "schema": "meaning-assurance.demo-task.v1",
+  "task_id": "bounded-validation-review-v1",
+  "task": "Reject an empty configuration value and add focused tests.",
+  "allowed_files": [
+    "scripts/Validate-Config.ps1",
+    "tests/test-validate-config.ps1"
+  ],
+  "required_checks": [
+    "rejects empty value",
+    "accepts valid value",
+    "preserves existing default behavior"
+  ],
+  "acceptance_authority": "human",
+  "automatic_merge": false
+}
