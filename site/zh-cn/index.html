@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meaning Assurance（AI 对抗审计助手）— 用证据核验 Coding Agent</title>
+    <meta name="description" content="面向 Coding Agent 的本地优先证据核验与对抗复审机制：冻结证据、保留分歧，并把最终接受权留给人类。">
+    <link rel="canonical" href="https://leviuszen.github.io/meaning-assurance/zh-cn/">
+    <link rel="alternate" hreflang="en" href="https://leviuszen.github.io/meaning-assurance/">
+    <link rel="alternate" hreflang="zh-CN" href="https://leviuszen.github.io/meaning-assurance/zh-cn/">
+    <link rel="alternate" hreflang="x-default" href="https://leviuszen.github.io/meaning-assurance/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meaning Assurance（AI 对抗审计助手）">
+    <meta property="og:description" content="Coding Agent 说完成了。它留下了什么证据？">
+    <meta property="og:url" content="https://leviuszen.github.io/meaning-assurance/zh-cn/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/leviuszen/meaning-assurance/main/assets/social-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="主导航">
+        <a class="brand" href="../">Meaning <span>Assurance</span></a>
+        <div class="nav-links">
+          <a href="#protocol">工作机制</a>
+          <a href="../demo/">Demo</a>
+          <a href="../cases/strategy-review/">案例</a>
+          <a href="../" lang="en">English</a>
+          <a href="https://github.com/leviuszen/meaning-assurance">GitHub ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow">面向 Coding Agent 的证据核验与对抗复审机制</p>
+            <h1>Agent 说：<em>“完成了。”</em></h1>
+            <p class="lede">
+              你真的相信吗？Meaning Assurance（AI 对抗审计助手）把 Worker 的完成
+              主张、冻结证据、独立挑战、经过裁决的 Finding 与人类最终接受分离开来。
+            </p>
+            <div class="actions">
+              <a class="button primary" href="../demo/">运行无需 Key 的 Demo</a>
+              <a class="button" href="https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0">查看 v0.2.0</a>
+            </div>
+          </div>
+          <aside class="claim-card" aria-label="Worker 完成主张示例">
+            <strong>完成。</strong>
+            <p>测试全部通过。<br>没有范围漂移。<br>未发现问题。</p>
+          </aside>
+        </div>
+      </section>
+
+      <div class="principle">
+        <div class="shell">
+          <p>Agent 提出结果，证据接受核验，人类决定是否采纳。</p>
+        </div>
+      </div>
+
+      <section id="protocol">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">它是一套协议，不是另一个 Agent</p>
+            <h2>自信，不等于控制系统。</h2>
+            <p class="lede">
+              第二个 Agent 同意第一个 Agent，也可能只是“同步的自信”。协议要求在
+              人类接受结果前，让证据、质疑与重要分歧保持可检查。
+            </p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <span class="number">01 / 约束</span>
+              <h3>界定任务</h3>
+              <p>记录范围、非目标、允许文件、测试要求与接受标准。</p>
+            </article>
+            <article class="card">
+              <span class="number">02 / 隔离</span>
+              <h3>隔离实现</h3>
+              <p>将 Worker 修改保存在 Git worktree，而不是直接写入源工作区。</p>
+            </article>
+            <article class="card">
+              <span class="number">03 / 冻结</span>
+              <h3>冻结复审证据</h3>
+              <p>为 Reviewer 收到的快照生成哈希，避免后续修改悄悄改变复审依据。</p>
+            </article>
+            <article class="card">
+              <span class="number">04 / 接受</span>
+              <h3>保留人类权力</h3>
+              <p>裁决 Finding 与分歧，但不允许 Agent 自己批准自己的工作。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell evidence">
+          <div>
+            <p class="eyebrow">检查完整裁决链</p>
+            <h2>一条命令，一个有边界的决定。</h2>
+            <p>
+              确定性 Demo 使用合成 Fixture，不需要 API Key，不启动外部模型，只写入
+              由你指定的新输出目录。
+            </p>
+            <div class="actions">
+              <a class="button primary" href="../demo/">查看 Demo 命令</a>
+              <a class="button" href="https://github.com/leviuszen/meaning-assurance/tree/main/examples/demo-fixture">检查 Fixture</a>
+            </div>
+          </div>
+          <div class="terminal" aria-label="Demo 输出摘要">
+            <div>$ powershell ... .\scripts\Run-Demo.ps1</div>
+            <br>
+            <div>Worker 主张：<span class="good">已完成</span></div>
+            <div>证据：<span class="bad">一个声明测试没有运行</span></div>
+            <div>范围：<span class="bad">一个修改文件越界</span></div>
+            <div>Finding：2 个确认 / 1 个驳回 / 1 个不可检验</div>
+            <div>人类决定：<span class="bad">不接受</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell evidence">
+          <div>
+            <p class="eyebrow">战略规划同样可以接受复审</p>
+            <h2>展开头脑风暴，也保留反对意见。</h2>
+            <p>
+              第一方战略复审案例保存候选方向、对抗追问、Moderator 裁决与只读审计
+              记录。它证明流程可以复现，不构成市场验证，也不证明某项战略一定成功。
+            </p>
+            <a class="button" href="../cases/strategy-review/">阅读有边界的案例</a>
+          </div>
+          <ul class="boundary-list">
+            <li>第一方内部 Dogfooding，不是独立验证。</li>
+            <li>Git worktree 隔离文件，不隔离操作系统权限。</li>
+            <li>冻结证据仍然可能不充分。</li>
+            <li>协议不保证代码或决定正确。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell cta">
+          <p class="eyebrow">委托工作，保留决定权。</p>
+          <h2>不要只问 Agent 是否自信，检查它留下了什么。</h2>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/leviuszen/meaning-assurance">打开仓库</a>
+            <a class="button" href="https://github.com/leviuszen/meaning-assurance/blob/main/docs/LIMITATIONS.md">阅读当前限制</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><strong>Meaning Assurance</strong> by LEVIUS</div>
+        <div>本地优先 · 不自动合并 · 人类保留最终决定权</div>
+      </div>
+    </footer>
+  </body>
+</html>

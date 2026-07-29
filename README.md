@@ -4,9 +4,9 @@
 
 [简体中文](README.zh-CN.md) · [Run the demo](#see-the-decision-trail-in-one-command) · [Brainstorm a strategy](#strategic-planning-brainstorm) · [Inspect a real audit](#a-real-first-party-evidence-case) · [Read the protocol](docs/PROTOCOL.md)
 
-> **v0.2.0 release candidate:** this branch is under review in Draft PR
-> [#2](https://github.com/leviuszen/agent-workbench/pull/2). It has not been
-> merged, tagged, or released.
+> **Current public preview:** [v0.2.0](https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0)
+> establishes the Meaning Assurance identity, deterministic no-key demo,
+> first-party evidence case, and bilingual first-contact path.
 
 ## Your coding agent says: “Done.”
 
@@ -212,11 +212,11 @@ not store provider API keys.
 - **Canonical product brand:** Meaning Assurance
 - **Chinese audience-facing alias:** AI 对抗审计助手
 - **Public author identity:** LEVIUS
-- **Current repository slug:** `agent-workbench`
+- **Current repository slug:** `meaning-assurance`
 
-The product name has changed before the repository slug. A future repository
-rename requires separate authorization and migration verification. Existing
-technical identifiers remain compatible:
+The public repository was renamed from `agent-workbench` to
+`meaning-assurance` on 2026-07-29. GitHub redirects the former repository and
+Git remote URLs. Existing technical identifiers remain compatible:
 
 ```text
 .agent-workbench
@@ -262,9 +262,9 @@ pwsh -NoProfile -File .\tests\run-tests.ps1
 Meaning Assurance is a Windows-first public preview. Its public API is not yet
 stable, and breaking changes may occur before `1.0.0`.
 
-The v0.2.0 materials in this branch are release candidates, not a published
-Release. See [CHANGELOG.md](CHANGELOG.md) and the
-[publication boundary](docs/PUBLICATION_READINESS.md).
+`v0.2.0` is the current public preview. See [CHANGELOG.md](CHANGELOG.md), the
+[Release](https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0),
+and the [publication record](docs/PUBLICATION_READINESS.md).
 
 ## Author and contact
 

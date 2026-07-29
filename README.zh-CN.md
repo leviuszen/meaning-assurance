@@ -4,9 +4,9 @@
 
 [English](README.md) · [运行演示](#用一条命令查看完整裁决链) · [战略规划头脑风暴](#战略规划头脑风暴) · [检查真实审计](#第一方真实证据案例) · [阅读协议](docs/PROTOCOL.md)
 
-> **v0.2.0 发布候选：**当前分支正在 Draft PR
-> [#2](https://github.com/leviuszen/agent-workbench/pull/2) 中接受审查，尚未合并、打
-> Tag 或发布 Release。
+> **当前公开预览版：**[v0.2.0](https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0)
+> 建立了 Meaning Assurance 品牌身份、无需 Key 的确定性 Demo、第一方证据案例和
+> 完整双语首次接触路径。
 
 ## 你的 Coding Agent 说：“完成了。”
 
@@ -201,10 +201,11 @@ discussions/
 - **规范产品品牌：**Meaning Assurance
 - **中文受众名称：**AI 对抗审计助手
 - **公开作者身份：**LEVIUS
-- **当前仓库 slug：**`agent-workbench`
+- **当前仓库 slug：**`meaning-assurance`
 
-产品名已经更新，但仓库 slug 尚未改名。未来仓库改名必须获得单独授权并完成迁移
-验证。以下技术标识继续保持兼容：
+公开仓库已于 2026-07-29 从 `agent-workbench` 改名为
+`meaning-assurance`。GitHub 会重定向原仓库网页与 Git remote URL。以下技术
+标识继续保持兼容：
 
 ```text
 .agent-workbench
@@ -247,8 +248,9 @@ pwsh -NoProfile -File .\tests\run-tests.ps1
 Meaning Assurance 当前是 Windows-first Public Preview。公开 API 尚未稳定，
 `1.0.0` 之前可能发生 Breaking Change。
 
-当前分支中的 v0.2.0 材料是发布候选，不是已经公开的 Release。参见
-[CHANGELOG.md](CHANGELOG.md) 与[发布边界](docs/PUBLICATION_READINESS.md)。
+`v0.2.0` 是当前公开预览版。参见 [CHANGELOG.md](CHANGELOG.md)、
+[Release](https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0)
+与[发布记录](docs/PUBLICATION_READINESS.md)。
 
 ## 作者与联系
 

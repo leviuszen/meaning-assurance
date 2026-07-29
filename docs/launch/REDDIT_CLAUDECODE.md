@@ -54,7 +54,7 @@ Current boundaries:
 - Git worktree isolation is not an OS sandbox; and
 - no claim of guaranteed correctness.
 
-Repository: `<FINAL_REPOSITORY_URL>`
+Repository: <https://github.com/leviuszen/meaning-assurance>
 
 I am not asking for stars. I would like people who already use Claude Code to
 run the fixture and challenge the protocol: where can evidence still be

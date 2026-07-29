@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>No-key Demo — Meaning Assurance</title>
+    <meta name="description" content="Run the deterministic Meaning Assurance evidence-review demo without an API key or live model.">
+    <link rel="canonical" href="https://leviuszen.github.io/meaning-assurance/demo/">
+    <meta property="og:title" content="Meaning Assurance no-key demo">
+    <meta property="og:description" content="Inspect a bounded decision trail in one PowerShell command.">
+    <meta property="og:url" content="https://leviuszen.github.io/meaning-assurance/demo/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/leviuszen/meaning-assurance/main/assets/social-preview.png">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="Primary">
+        <a class="brand" href="../">Meaning <span>Assurance</span></a>
+        <div class="nav-links">
+          <a href="../">Home</a>
+          <a href="../cases/strategy-review/">Case</a>
+          <a href="https://github.com/leviuszen/meaning-assurance">GitHub ↗</a>
+        </div>
+      </nav>
+    </header>
+    <main class="shell prose">
+      <p class="eyebrow" style="margin-top:72px">Deterministic first use</p>
+      <h1>See the decision trail in one command.</h1>
+      <p class="lede">
+        This synthetic fixture is designed to make the mechanism inspectable.
+        It does not contact a model, require a provider key, or modify an
+        existing project.
+      </p>
+
+      <h2>Run it</h2>
+      <div class="terminal">
+        git clone https://github.com/leviuszen/meaning-assurance.git<br>
+        cd meaning-assurance<br>
+        powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Run-Demo.ps1
+      </div>
+
+      <h2>What the fixture contains</h2>
+      <ul class="boundary-list">
+        <li>A bounded task packet and a worker completion claim.</li>
+        <li>Frozen test and changed-file evidence.</li>
+        <li>Reviewer findings with confirm, reject, and not-testable outcomes.</li>
+        <li>A final human decision that refuses acceptance when evidence is incomplete.</li>
+      </ul>
+
+      <h2>Expected conclusion</h2>
+      <p>
+        The worker says the task is complete. The evidence shows one declared
+        test is missing and one changed file is outside scope. The final
+        decision is therefore <strong>not accepted</strong>.
+      </p>
+
+      <div class="notice">
+        The demo proves that the included fixture can be processed
+        deterministically. It does not prove that every real review has enough
+        evidence, that reviewers are correct, or that the final human decision
+        will be correct.
+      </div>
+
+      <section style="padding-left:0;padding-right:0">
+        <div class="actions">
+          <a class="button primary" href="https://github.com/leviuszen/meaning-assurance/blob/main/docs/QUICKSTART.md">Open the full quick start</a>
+          <a class="button" href="https://github.com/leviuszen/meaning-assurance/tree/main/examples/demo-fixture">Inspect every evidence file</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><strong>Meaning Assurance</strong> by LEVIUS</div>
+        <a href="../">Back to home</a>
+      </div>
+    </footer>
+  </body>
+</html>

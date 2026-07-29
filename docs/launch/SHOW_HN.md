@@ -12,7 +12,7 @@ Show HN: Meaning Assurance – evidence-based review for coding agents
 ## Submission URL
 
 ```text
-<FINAL_RUNNABLE_REPOSITORY_URL>
+https://github.com/leviuszen/meaning-assurance
 ```
 
 ## Founder comment
@@ -61,7 +61,7 @@ moderator still overreach?
 
 - Re-open the current
   [Show HN Guidelines](https://news.ycombinator.com/showhn.html).
-- Replace the URL placeholder.
+- Confirm the final repository and Release URLs resolve.
 - Confirm the demo runs from a clean clone.
 - Publish only after the repository and Release are public.
 - Be available to answer technical questions.

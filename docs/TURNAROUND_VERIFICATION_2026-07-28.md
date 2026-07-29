@@ -3,17 +3,19 @@
 Date: 2026-07-28
 Branch: `codex/turnaround-01`
 Base commit: `f0ad137d342da35c5ac7d66667724741f4511205`
-Candidate: `v0.2.0` — pushed to Draft PR
-[#2](https://github.com/leviuszen/agent-workbench/pull/2), not merged, tagged,
-or released
+Pre-merge candidate: `v0.2.0` — later merged through
+[#2](https://github.com/leviuszen/meaning-assurance/pull/2) as
+`fba5be5e36ef55ddb28c7215ae5d3928e93612a9`
 
-This record captures the authorized local verification completed before PR
-creation. Current GitHub Actions receipts are attached to Draft PR #2. This
-record is not a Release receipt, an independent endorsement, or authorization
-to publish.
+This record captures the authorized local verification completed before and
+during PR review. Current GitHub Actions receipts are attached to PR #2. Later
+rename, Release, Pages, and publication receipts belong in
+[PUBLICATION_READINESS.md](PUBLICATION_READINESS.md). This record is not an
+independent endorsement.
 
-本记录保存创建 PR 之前完成的已授权本地验证。当前 GitHub Actions 回执已关联到
-Draft PR #2。本记录不是 Release 回执、独立背书，也不构成发布授权。
+本记录保存 PR 创建前与复审期间完成的已授权本地验证。当前 GitHub Actions 回执已
+关联到 PR #2。后续仓库改名、Release、Pages 与外部发布回执记录在
+[PUBLICATION_READINESS.md](PUBLICATION_READINESS.md)。本记录不是独立背书。
 
 ## Test matrix / 测试矩阵
 
@@ -122,7 +124,7 @@ that the candidate has already been published.
 slug 确定后，应替换全部传播草稿 URL 占位符。这些是发布门禁，不表示候选已经
 完成公开发布。
 
-## Deliberately deferred / 明确后置
+## Deliberately deferred during the local build / 本地构建阶段明确后置
 
 - GitHub-rendered link and layout review
 - Remote CI for the candidate branch
@@ -138,6 +140,7 @@ slug 确定后，应替换全部传播草稿 URL 占位符。这些是发布门�
 - Tag 与 Release 创建
 - 社区发布、目录提交与外联
 
-These are external gates. None was performed during the local build.
+These were external gates during the local build. They were subsequently
+authorized and require their own live receipts.
 
-这些属于外部门禁；本地构建阶段未执行其中任何一项。
+这些在本地构建阶段属于外部门禁，随后已获得授权，并分别需要实时回执。

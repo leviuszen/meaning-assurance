@@ -1,9 +1,9 @@
 # v0.2.0 Publication Readiness / v0.2.0 发布准备
 
-This document separates the authorized TURNAROUND-01 local build from actions
-that change GitHub or expose material externally.
+This document records the TURNAROUND-01 release gates, publication
+authorization, and externally verifiable receipts.
 
-本文将已授权的 TURNAROUND-01 本地构建，与修改 GitHub 或对外公开材料的动作分开。
+本文记录 TURNAROUND-01 的发布门禁、公开授权与可外部核验的回执。
 
 ## Candidate identity / 候选身份
 
@@ -12,10 +12,9 @@ that change GitHub or expose material externally.
 - Author ID: **LEVIUS**
 - Public contact: [agentworkbench@proton.me](mailto:agentworkbench@proton.me)
 - License: Apache License 2.0
-- Current public Release: `v0.1.0`
-- Local candidate: `v0.2.0`
-- Current repository slug: `agent-workbench`
-- Proposed future slug: `meaning-assurance` — not authorized
+- Current public Release: `v0.2.0`
+- Current repository slug: `meaning-assurance`
+- Former repository slug: `agent-workbench` — GitHub redirect retained
 - Local verification record:
   [TURNAROUND_VERIFICATION_2026-07-28.md](TURNAROUND_VERIFICATION_2026-07-28.md)
 
@@ -82,23 +81,23 @@ Every blocking item must pass before a public-release recommendation.
 - The deterministic demo is labeled synthetic.
 - No adoption, conversion, ranking, performance, demand, certification, or
   independent-validation claim is made without current traceable evidence.
-- `v0.2.0` is described as a candidate until the Tag and Release exist.
+- `v0.2.0` is described as the current public preview only after its Tag and
+  Release exist.
 
 ### Migration and links / 迁移与链接
 
-- All internal links resolve in the candidate tree.
-- Old repository URL occurrences are classified before rename.
-- After an authorized rename, old and new web URLs, clean Clone, existing-remote
-  Fetch, Tag, Release, Badge, raw link, Actions reference, and Pages behavior
-  are verified.
-- Pages is optional and cannot block release if it was explicitly downgraded
-  before the gate.
+- All internal links resolve in the release tree.
+- Old repository URL occurrences were classified before rename.
+- Old and new web URLs plus old/new Git remote resolution were verified after
+  rename.
+- Tag, Release, Social Preview, homepage, and Pages require their own live
+  receipts.
 
-## Conditional Pages rule / Pages 条件规则
+## Minimal Pages rule / 最小 Pages 规则
 
-Pages may remain in the candidate only if it:
+The authorized Pages implementation:
 
-只有同时满足以下条件，Pages 才保留在候选范围内：
+已授权的 Pages 实施：
 
 - reuses README, case, demo, and mechanism assets;
 - creates no second factual source;
@@ -107,31 +106,29 @@ Pages may remain in the candidate only if it:
 - does not delay README, demo, case, tests, or Release; and
 - has a clear post-rename URL.
 
-Otherwise Pages is deferred without blocking `v0.2.0`.
+Current decision: [minimal Pages is implemented](PAGES_DECISION.md).
 
-否则 Pages 后置，不阻挡 `v0.2.0`。
+## Publication authorization and receipts / 发布授权与回执
 
-Current local decision: [Pages is deferred](PAGES_DECISION.md).
+The user authorized the complete release window on 2026-07-29. Authorization
+includes merge, rename, GitHub metadata, Social Preview, Pages, Tag/Release,
+native English and Chinese launch posts, and bounded outreach.
 
-## External actions still requiring explicit approval / 仍需明确授权的外部动作
+用户于 2026-07-29 授权执行完整发布窗口，包括 Merge、仓库改名、GitHub 元数据、
+Social Preview、Pages、Tag/Release、中英文原生发布与有边界的外联。
 
-The following remain unauthorized:
+| Action | Receipt rule |
+|---|---|
+| PR merge | Merged PR URL and merge commit |
+| Repository rename | New URL plus old/new web and Git redirect checks |
+| Metadata and Social Preview | Read-back from the live repository |
+| Pages | Successful deployment URL and HTTP/render checks |
+| `v0.2.0` | Published Tag and Release URL |
+| Community posts | Public post URL or explicit platform failure |
+| Outreach | Message receipt, public reply URL, or explicit delivery failure |
 
-以下动作仍未授权：
+Authorization is not a delivery receipt. Each completed external action must be
+reported with its own observable URL, identifier, or success response.
 
-1. push a branch;
-2. open a Pull Request;
-3. merge to `main`;
-4. rename the repository;
-5. change About, Topics, Social Preview, homepage, branch rules, or other
-   GitHub settings;
-6. enable or publish GitHub Pages;
-7. create the `v0.2.0` Tag or Release;
-8. publish to Show HN, Reddit, V2EX, Zhihu, or another community;
-9. submit an ecosystem-directory Pull Request; or
-10. contact any person or organization.
-
-The local candidate may contain drafts and migration instructions for these
-actions. Drafts are not delivery receipts.
-
-本地候选可以包含这些动作的草稿和迁移说明，但草稿不是已经发布或送达的证据。
+授权本身不是送达回执。每项外部动作完成后，必须保留可观察的 URL、标识符或成功
+响应。

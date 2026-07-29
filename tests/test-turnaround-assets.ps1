@@ -58,7 +58,7 @@ Assert ($readme.Contains("[Simple Chinese]") -eq $false) "English README should 
 Assert ($readme.Contains("README.zh-CN.md")) "English README must link the complete Chinese counterpart."
 Assert ($readme.Contains("scripts\Run-Demo.ps1")) "English README must expose the one-command demo."
 Assert ($readme.Contains("first-party evidence case")) "English README must expose the bounded real case."
-Assert ($readme.Contains("v0.2.0 release candidate")) "English README must preserve local candidate status."
+Assert ($readme.Contains("Current public preview")) "English README must identify the published preview."
 
 $readmeZhNonAscii = [regex]::Matches($readmeZh, '[^\x00-\x7F]').Count
 Assert ($readmeZhNonAscii -gt 1500) "Chinese README does not contain enough Chinese-language content."
@@ -114,7 +114,7 @@ foreach ($pair in $bilingualBoundaryPairs) {
 Assert ($quickstart.Contains("deterministic demo")) "Quick start must separate the deterministic demo."
 Assert ($quickstart.Contains("live workflow")) "Quick start must explain the live workflow boundary."
 Assert ($limitations.Contains("does not claim to")) "Limitations must state prohibited claims."
-Assert ($migration -match 'does not\s+authorize or perform that rename') "Migration doc must preserve the rename gate."
+Assert ($migration.Contains("completed public repository rename")) "Migration doc must record the completed rename."
 Assert ($migration.Contains("AGENT_WORKBENCH_HOME")) "Migration doc must preserve compatibility identifiers."
 Assert ($traceability.Contains("tests/test-run-demo.ps1")) "Claim ledger must map the demo claim to a test."
 Assert ($traceability.Contains("Claims prohibited")) "Claim ledger must include prohibited launch claims."
@@ -133,8 +133,8 @@ Assert ($socialPreview.Contains("Meaning Assurance")) "Social Preview source mus
 Assert ($socialPreview.Contains("Agents propose. Evidence is verified. Humans decide. by LEVIUS.")) "Social Preview description must include all visible messaging."
 $socialPreviewPng = Get-Item -LiteralPath (Join-Path $repoRoot "assets\social-preview.png")
 Assert ($socialPreviewPng.Length -gt 10000) "Rendered Social Preview PNG is unexpectedly small."
-Assert ($release.Contains("Release candidate")) "English v0.2.0 material must remain a candidate."
-Assert ($releaseZh.Contains("v0.2.0")) "Chinese v0.2.0 material must identify the candidate version."
+Assert (-not $release.Contains("Release candidate")) "English v0.2.0 material must not retain candidate status."
+Assert ($releaseZh.Contains("v0.2.0")) "Chinese v0.2.0 material must identify the published version."
 
 $canonicalEvidenceLine = "Evidence: one declared test is missing; one changed file is outside scope"
 $canonicalReviewLine = "Review outcomes: 2 confirmed, 1 rejected, 1 not testable"

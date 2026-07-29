@@ -2,10 +2,10 @@
 
 ## Meaning Assurance 品牌与仓库迁移
 
-This document prepares a possible public repository rename. It does not
-authorize or perform that rename.
+This document records the completed public repository rename and the
+compatibility boundary that remains after it.
 
-本文用于准备未来可能发生的公开仓库改名，不构成改名授权，也不会执行改名。
+本文记录已经完成的公开仓库改名，以及改名后继续保留的兼容边界。
 
 ## Public identity / 公开身份
 
@@ -14,14 +14,14 @@ authorize or perform that rename.
 | Canonical product brand / 规范产品品牌 | **Meaning Assurance** |
 | Chinese audience-facing alias / 中文受众名称 | **AI 对抗审计助手** |
 | Public author / 公开作者 | **LEVIUS** |
-| Current repository slug / 当前仓库 slug | `agent-workbench` |
-| Proposed future slug / 候选未来 slug | `meaning-assurance` |
+| Former repository slug / 原仓库 slug | `agent-workbench` |
+| Current repository slug / 当前仓库 slug | `meaning-assurance` |
 
 ## Compatibility identifiers that remain / 保留的兼容标识
 
-The v0.2.0 candidate does not rename:
+The v0.2.0 release does not rename:
 
-v0.2.0 候选版本不修改：
+v0.2.0 版本不修改：
 
 ```text
 .agent-workbench
@@ -33,8 +33,8 @@ existing canonical result filenames
 ```
 
 Changing these identifiers would create operational risk without improving
-public discovery. A future breaking migration requires a separate design,
-compatibility period, tests, and explicit authorization.
+public discovery. A future breaking migration still requires a separate
+design, compatibility period, tests, and explicit authorization.
 
 修改这些标识会增加运行风险，却不会改善公开发现能力。未来如需 Breaking
 Migration，必须单独设计兼容期、测试并获得明确授权。
@@ -85,11 +85,15 @@ After an authorized rename:
 - 明确验证 Actions 与可复用 Workflow 引用；
 - 在 v0.2.0 Release 中发布兼容说明。
 
-## Current authorization boundary / 当前授权边界
+## Completed rename record / 已完成改名记录
 
-The TURNAROUND-01 local build may prepare this migration. It may not rename the
-repository, change GitHub settings, push, merge, publish a Release, enable
-Pages, or update external references.
+On 2026-07-29, the repository was renamed to
+`leviuszen/meaning-assurance` after PR #2 was merged and the `main` CI passed.
+Both the former and current Git URLs resolved to the same commit immediately
+after the rename. No accessible external reusable-Action reference to
+`leviuszen/agent-workbench` was found in the pre-rename inventory.
 
-TURNAROUND-01 本地构建可以准备迁移，但不得改仓库名、修改 GitHub 设置、Push、
-Merge、发布 Release、启用 Pages或更新外部引用。
+2026-07-29，PR #2 合并且 `main` CI 通过后，仓库已改名为
+`leviuszen/meaning-assurance`。改名后，原 Git URL 与新 Git URL 立即解析到同一
+提交；改名前清点未发现可访问的外部可复用 Action 引用了
+`leviuszen/agent-workbench`。

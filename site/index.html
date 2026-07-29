@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meaning Assurance — Verify Coding Agent Work with Evidence</title>
+    <meta name="description" content="Local-first verification and adversarial review for coding agents. Freeze evidence, preserve disagreement, and keep final acceptance human.">
+    <link rel="canonical" href="https://leviuszen.github.io/meaning-assurance/">
+    <link rel="alternate" hreflang="en" href="https://leviuszen.github.io/meaning-assurance/">
+    <link rel="alternate" hreflang="zh-CN" href="https://leviuszen.github.io/meaning-assurance/zh-cn/">
+    <link rel="alternate" hreflang="x-default" href="https://leviuszen.github.io/meaning-assurance/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meaning Assurance — Evidence before acceptance">
+    <meta property="og:description" content="Your coding agent says done. What evidence did it leave?">
+    <meta property="og:url" content="https://leviuszen.github.io/meaning-assurance/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/leviuszen/meaning-assurance/main/assets/social-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="Primary">
+        <a class="brand" href="./">Meaning <span>Assurance</span></a>
+        <div class="nav-links">
+          <a href="#protocol">Protocol</a>
+          <a href="./demo/">Demo</a>
+          <a href="./cases/strategy-review/">Case</a>
+          <a href="./zh-cn/" lang="zh-CN">中文</a>
+          <a href="https://github.com/leviuszen/meaning-assurance">GitHub ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow">Evidence-based adversarial review for coding agents</p>
+            <h1>Your agent says <em>“Done.”</em></h1>
+            <p class="lede">
+              Do you believe it? Meaning Assurance separates a worker’s claim
+              from frozen evidence, independent challenge, moderated findings,
+              and the human decision to accept.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="./demo/">Run the no-key demo</a>
+              <a class="button" href="https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0">Read v0.2.0</a>
+            </div>
+          </div>
+          <aside class="claim-card" aria-label="Example worker claim">
+            <strong>Done.</strong>
+            <p>Tests passed.<br>Scope respected.<br>No issues found.</p>
+          </aside>
+        </div>
+      </section>
+
+      <div class="principle">
+        <div class="shell">
+          <p>Agents propose. Evidence is verified. Humans decide what to accept.</p>
+        </div>
+      </div>
+
+      <section id="protocol">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">A protocol, not another agent</p>
+            <h2>Confidence is not a control system.</h2>
+            <p class="lede">
+              A second agent agreeing with the first can still be synchronized
+              confidence. The protocol makes the evidence and disagreement
+              inspectable before a human accepts the result.
+            </p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <span class="number">01 / BOUND</span>
+              <h3>Bound the task</h3>
+              <p>Record scope, non-goals, allowed files, tests, and acceptance criteria.</p>
+            </article>
+            <article class="card">
+              <span class="number">02 / ISOLATE</span>
+              <h3>Isolate implementation</h3>
+              <p>Keep worker changes in a Git worktree instead of the source checkout.</p>
+            </article>
+            <article class="card">
+              <span class="number">03 / FREEZE</span>
+              <h3>Freeze review evidence</h3>
+              <p>Hash the exact snapshot reviewers receive so later edits cannot rewrite the review basis.</p>
+            </article>
+            <article class="card">
+              <span class="number">04 / ACCEPT</span>
+              <h3>Keep authority human</h3>
+              <p>Moderate findings and disagreement; never let an agent approve its own work.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell evidence">
+          <div>
+            <p class="eyebrow">Inspect the trail</p>
+            <h2>One command. A complete bounded decision.</h2>
+            <p>
+              The deterministic demo uses a synthetic fixture, requires no API
+              key, launches no external model, and writes only to a new output
+              directory you choose.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="./demo/">Demo instructions</a>
+              <a class="button" href="https://github.com/leviuszen/meaning-assurance/tree/main/examples/demo-fixture">Inspect fixture</a>
+            </div>
+          </div>
+          <div class="terminal" aria-label="Demo output summary">
+            <div>$ powershell ... .\scripts\Run-Demo.ps1</div>
+            <br>
+            <div>Worker claim: <span class="good">complete</span></div>
+            <div>Evidence: <span class="bad">one declared test missing</span></div>
+            <div>Scope: <span class="bad">one changed file outside scope</span></div>
+            <div>Findings: 2 confirmed / 1 rejected / 1 not testable</div>
+            <div>Human decision: <span class="bad">not accepted</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell evidence">
+          <div>
+            <p class="eyebrow">Strategy is also reviewable</p>
+            <h2>Brainstorm directions. Preserve the objections.</h2>
+            <p>
+              The first-party strategy-review case shows competing directions,
+              adversarial questions, moderator decisions, and a read-only audit
+              trail. It demonstrates the workflow—not market validation or
+              proof that a strategy will succeed.
+            </p>
+            <a class="button" href="./cases/strategy-review/">Read the bounded case</a>
+          </div>
+          <ul class="boundary-list">
+            <li>First-party internal dogfooding, not independent validation.</li>
+            <li>Git worktrees isolate files, not operating-system permissions.</li>
+            <li>Frozen evidence can still be incomplete.</li>
+            <li>The protocol does not guarantee correct code or decisions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell cta">
+          <p class="eyebrow">Delegate the work. Keep the authority.</p>
+          <h2>Ask what the agent left behind.</h2>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/leviuszen/meaning-assurance">Open the repository</a>
+            <a class="button" href="https://github.com/leviuszen/meaning-assurance/blob/main/docs/LIMITATIONS.md">Read limitations</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><strong>Meaning Assurance</strong> by LEVIUS</div>
+        <div>Local-first · No automatic merge · Human final authority</div>
+      </div>
+    </footer>
+  </body>
+</html>
