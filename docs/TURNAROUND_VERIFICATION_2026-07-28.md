@@ -3,14 +3,17 @@
 Date: 2026-07-28
 Branch: `codex/turnaround-01`
 Base commit: `f0ad137d342da35c5ac7d66667724741f4511205`
-Candidate: `v0.2.0` — local only, not published
+Candidate: `v0.2.0` — pushed to Draft PR
+[#2](https://github.com/leviuszen/agent-workbench/pull/2), not merged, tagged,
+or released
 
-This record covers the authorized local build. It is not a GitHub Actions
-receipt, a Release receipt, an independent endorsement, or authorization to
-publish.
+This record captures the authorized local verification completed before PR
+creation. Current GitHub Actions receipts are attached to Draft PR #2. This
+record is not a Release receipt, an independent endorsement, or authorization
+to publish.
 
-本记录覆盖已授权的本地构建。它不是 GitHub Actions 回执、Release 回执、独立背书，
-也不构成发布授权。
+本记录保存创建 PR 之前完成的已授权本地验证。当前 GitHub Actions 回执已关联到
+Draft PR #2。本记录不是 Release 回执、独立背书，也不构成发布授权。
 
 ## Test matrix / 测试矩阵
 

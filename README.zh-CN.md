@@ -4,8 +4,9 @@
 
 [English](README.md) · [运行演示](#用一条命令查看完整裁决链) · [战略规划头脑风暴](#战略规划头脑风暴) · [检查真实审计](#第一方真实证据案例) · [阅读协议](docs/PROTOCOL.md)
 
-> **v0.2.0 发布候选：**当前分支仅为本地构建，尚未公开推送、打 Tag 或发布
-> Release。
+> **v0.2.0 发布候选：**当前分支正在 Draft PR
+> [#2](https://github.com/leviuszen/agent-workbench/pull/2) 中接受审查，尚未合并、打
+> Tag 或发布 Release。
 
 ## 你的 Coding Agent 说：“完成了。”
 

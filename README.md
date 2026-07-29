@@ -4,8 +4,9 @@
 
 [简体中文](README.zh-CN.md) · [Run the demo](#see-the-decision-trail-in-one-command) · [Brainstorm a strategy](#strategic-planning-brainstorm) · [Inspect a real audit](#a-real-first-party-evidence-case) · [Read the protocol](docs/PROTOCOL.md)
 
-> **v0.2.0 release candidate:** this branch is a local build. It has not been
-> published, tagged, or released.
+> **v0.2.0 release candidate:** this branch is under review in Draft PR
+> [#2](https://github.com/leviuszen/agent-workbench/pull/2). It has not been
+> merged, tagged, or released.
 
 ## Your coding agent says: “Done.”
 
