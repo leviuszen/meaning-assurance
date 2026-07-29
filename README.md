@@ -1,4 +1,4 @@
-# Meaning Assurance
+# Meaning Assurance — Coding Agent Verification and Adversarial Review
 
 **Evidence-based adversarial review for coding agents — by LEVIUS**
 
@@ -19,7 +19,9 @@ confidence?
 Coding agents are good at producing answers. They should not have the authority
 to approve themselves.
 
-**Meaning Assurance** is a local-first, file-backed protocol that separates:
+**Meaning Assurance** is a local-first coding agent verification protocol for
+reviewing agent claims against frozen evidence, moderating adversarial findings,
+and keeping final acceptance human. It separates:
 
 - what a worker claims;
 - what the frozen evidence shows;
@@ -31,6 +33,18 @@ to approve themselves.
 
 No hosted control plane · No stored provider API keys · No automatic merge ·
 Human final authority
+
+## Use it when
+
+- you need to verify a coding agent's “done” claim;
+- you want an independent adversarial review of AI-generated code;
+- you need a human approval gate before accepting agent changes;
+- you want to review Claude Code output against frozen evidence; or
+- you need to preserve reviewer disagreement instead of hiding it.
+
+[Understand coding agent verification](docs/CODING_AGENT_VERIFICATION.md) ·
+[Review Claude Code output](docs/CLAUDE_CODE_REVIEW_WORKFLOW.md) ·
+[Keep the human approval gate](docs/HUMAN_APPROVAL_GATE.md)
 
 ## See the decision trail in one command
 

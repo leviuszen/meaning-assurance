@@ -7,6 +7,11 @@ function Assert {
   }
 }
 
+function ConvertFrom-CodePoints {
+  param([int[]]$CodePoints)
+  return -join ($CodePoints | ForEach-Object { [char]$_ })
+}
+
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $siteRoot = Join-Path $repoRoot "site"
 $requiredFiles = @(
@@ -17,6 +22,7 @@ $requiredFiles = @(
   "styles.css",
   "robots.txt",
   "sitemap.xml",
+  "llms.txt",
   "404.html"
 )
 
@@ -31,6 +37,7 @@ $case = Get-Content -LiteralPath (Join-Path $siteRoot "cases\strategy-review\ind
 $styles = Get-Content -LiteralPath (Join-Path $siteRoot "styles.css") -Raw -Encoding UTF8
 $robots = Get-Content -LiteralPath (Join-Path $siteRoot "robots.txt") -Raw -Encoding UTF8
 $sitemap = Get-Content -LiteralPath (Join-Path $siteRoot "sitemap.xml") -Raw -Encoding UTF8
+$llms = Get-Content -LiteralPath (Join-Path $siteRoot "llms.txt") -Raw -Encoding UTF8
 $workflow = Get-Content -LiteralPath (Join-Path $repoRoot ".github\workflows\pages.yml") -Raw -Encoding UTF8
 
 Assert ($english.Contains('<html lang="en">')) "English page must declare its language."
@@ -50,6 +57,12 @@ Assert ($robots.Contains("sitemap.xml")) "robots.txt must expose the sitemap."
 Assert ($sitemap.Contains("/zh-cn/")) "Sitemap must contain the Chinese entry."
 Assert ($sitemap.Contains("/demo/")) "Sitemap must contain the demo entry."
 Assert ($sitemap.Contains("/cases/strategy-review/")) "Sitemap must contain the strategy case."
+Assert ($llms.StartsWith("# Meaning Assurance")) "llms.txt must start with the canonical brand."
+Assert ($llms.Contains("coding agent verification")) "llms.txt must expose the core functional category."
+$chineseAlias = ConvertFrom-CodePoints @(0x0041,0x0049,0x0020,0x5BF9,0x6297,0x5BA1,0x8BA1,0x52A9,0x624B)
+Assert ($llms.Contains($chineseAlias)) "llms.txt must expose the Chinese audience-facing alias."
+Assert ($llms.Contains("docs/CODING_AGENT_VERIFICATION.md")) "llms.txt must link the functional verification page."
+Assert ($llms.Contains("Apache License 2.0")) "llms.txt must state the repository license accurately."
 Assert ($workflow.Contains("actions/checkout@v6")) "Pages workflow must avoid the deprecated checkout runtime."
 Assert ($workflow.Contains("actions/configure-pages@v5")) "Pages workflow must configure Pages."
 Assert ($workflow.Contains("actions/upload-pages-artifact@v4")) "Pages workflow must upload the static artifact."

@@ -7,6 +7,11 @@ function Assert {
   }
 }
 
+function ConvertFrom-CodePoints {
+param([int[]]$CodePoints)
+return -join ($CodePoints | ForEach-Object { [char]$_ })
+}
+
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $requiredRelativePaths = @(
   "README.md",
@@ -16,9 +21,12 @@ $requiredRelativePaths = @(
   "examples\demo-fixture\summary.md",
   "docs\QUICKSTART.md",
   "docs\LIMITATIONS.md",
-  "docs\MIGRATION.md",
-  "docs\CLAIM_TRACEABILITY.md",
-  "docs\TURNAROUND_BASELINE_2026-07-28.md",
+"docs\MIGRATION.md",
+"docs\CLAIM_TRACEABILITY.md",
+"docs\CODING_AGENT_VERIFICATION.md",
+"docs\CLAUDE_CODE_REVIEW_WORKFLOW.md",
+"docs\HUMAN_APPROVAL_GATE.md",
+"docs\TURNAROUND_BASELINE_2026-07-28.md",
   "docs\PAGES_DECISION.md",
   "docs\cases\2026-07-25-readme-strategy-review\README.md",
   "docs\cases\2026-07-25-readme-strategy-review\strategy-discussion.md",
@@ -45,6 +53,9 @@ $quickstart = Get-Content -LiteralPath (Join-Path $repoRoot "docs\QUICKSTART.md"
 $limitations = Get-Content -LiteralPath (Join-Path $repoRoot "docs\LIMITATIONS.md") -Raw -Encoding UTF8
 $migration = Get-Content -LiteralPath (Join-Path $repoRoot "docs\MIGRATION.md") -Raw -Encoding UTF8
 $traceability = Get-Content -LiteralPath (Join-Path $repoRoot "docs\CLAIM_TRACEABILITY.md") -Raw -Encoding UTF8
+$verificationGuide = Get-Content -LiteralPath (Join-Path $repoRoot "docs\CODING_AGENT_VERIFICATION.md") -Raw -Encoding UTF8
+$claudeWorkflow = Get-Content -LiteralPath (Join-Path $repoRoot "docs\CLAUDE_CODE_REVIEW_WORKFLOW.md") -Raw -Encoding UTF8
+$humanGate = Get-Content -LiteralPath (Join-Path $repoRoot "docs\HUMAN_APPROVAL_GATE.md") -Raw -Encoding UTF8
 $baseline = Get-Content -LiteralPath (Join-Path $repoRoot "docs\TURNAROUND_BASELINE_2026-07-28.md") -Raw -Encoding UTF8
 $strategyCase = Get-Content -LiteralPath (Join-Path $repoRoot "docs\cases\2026-07-25-readme-strategy-review\README.md") -Raw -Encoding UTF8
 $strategyDiscussion = Get-Content -LiteralPath (Join-Path $repoRoot "docs\cases\2026-07-25-readme-strategy-review\strategy-discussion.md") -Raw -Encoding UTF8
@@ -59,17 +70,23 @@ Assert ($readme.Contains("README.zh-CN.md")) "English README must link the compl
 Assert ($readme.Contains("scripts\Run-Demo.ps1")) "English README must expose the one-command demo."
 Assert ($readme.Contains("first-party evidence case")) "English README must expose the bounded real case."
 Assert ($readme.Contains("Current public preview")) "English README must identify the published preview."
+$readmeHeading = ($readme -split '\r?\n')[0]
+Assert ($readmeHeading.StartsWith("# Meaning Assurance")) "English README H1 must preserve the canonical brand."
+Assert ($readmeHeading.Contains("Coding Agent Verification and Adversarial Review")) "English README must expose the functional category in H1."
+Assert ($readme.Contains("## Use it when")) "English README must answer when the repository is useful."
+Assert ($readme.Contains("verify a coding agent's")) "English README must cover the coding-agent verification query."
+Assert ($readme.Contains("claim")) "English README must preserve completion-claim language."
+Assert ($readme.Contains("human approval gate")) "English README must cover the human-approval query."
 
 $readmeZhNonAscii = [regex]::Matches($readmeZh, '[^\x00-\x7F]').Count
 Assert ($readmeZhNonAscii -gt 1500) "Chinese README does not contain enough Chinese-language content."
 Assert ($readmeZh.Contains("Meaning Assurance")) "Chinese README must preserve the canonical English brand."
 Assert ($readmeZh.Contains("README.md")) "Chinese README must link back to the English entry."
 Assert ($readmeZh.Contains("scripts\Run-Demo.ps1")) "Chinese README must expose the deterministic demo."
-
-function ConvertFrom-CodePoints {
-  param([int[]]$CodePoints)
-  return -join ($CodePoints | ForEach-Object { [char]$_ })
-}
+$chineseUseWhen = ConvertFrom-CodePoints @(0x9002,0x5408,0x8FD9,0x4E9B,0x573A,0x666F)
+$chineseFunctionalCategory = ConvertFrom-CodePoints @(0x8BC1,0x636E,0x6838,0x9A8C,0x4E0E,0x5BF9,0x6297,0x590D,0x5BA1)
+Assert ($readmeZh.Contains("## $chineseUseWhen")) "Chinese README must answer when the repository is useful."
+Assert ($readmeZh.Contains("Coding Agent $chineseFunctionalCategory")) "Chinese README must expose the functional category."
 
 $bilingualBoundaryPairs = @(
   @{
@@ -119,6 +136,12 @@ Assert ($migration.Contains("AGENT_WORKBENCH_HOME")) "Migration doc must preserv
 Assert ($traceability.Contains("tests/test-run-demo.ps1")) "Claim ledger must map the demo claim to a test."
 Assert ($traceability.Contains("Claims prohibited")) "Claim ledger must include prohibited launch claims."
 Assert ($traceability.Contains("strategic planning brainstorming")) "Claim ledger must bound the strategic-planning claim."
+Assert ($verificationGuide.Contains("What verification means here")) "Verification guide must define its evidence model."
+Assert ([regex]::Matches($verificationGuide, '[^\x00-\x7F]').Count -gt 500) "Verification guide must include a substantial Chinese counterpart."
+Assert ($claudeWorkflow.Contains("Read-only adversarial review path")) "Claude workflow must include the governed review path."
+Assert ([regex]::Matches($claudeWorkflow, '[^\x00-\x7F]').Count -gt 500) "Claude workflow must include a substantial Chinese counterpart."
+Assert ($humanGate.Contains("Evidence before acceptance")) "Human gate must define pre-acceptance evidence."
+Assert ([regex]::Matches($humanGate, '[^\x00-\x7F]').Count -gt 400) "Human gate must include a substantial Chinese counterpart."
 Assert ($baseline.Contains("PowerShell 7")) "Day 0 baseline must record the PowerShell 7 environment gap."
 Assert ($baseline.Contains("not a passing result")) "Day 0 baseline must not misstate the PowerShell 7 result."
 Assert ($strategyCase.Contains("Strategic Planning Brainstorm")) "The real case must expose strategic planning brainstorming."
@@ -158,9 +181,12 @@ $linkDocuments = @(
   "README.md",
   "README.zh-CN.md",
   "docs\QUICKSTART.md",
-  "docs\LIMITATIONS.md",
-  "docs\MIGRATION.md",
-  "docs\launch\README.md",
+"docs\LIMITATIONS.md",
+"docs\MIGRATION.md",
+"docs\CODING_AGENT_VERIFICATION.md",
+"docs\CLAUDE_CODE_REVIEW_WORKFLOW.md",
+"docs\HUMAN_APPROVAL_GATE.md",
+"docs\launch\README.md",
   ".github\RELEASE_v0.2.0.md",
   ".github\RELEASE_v0.2.0.zh-CN.md"
 )

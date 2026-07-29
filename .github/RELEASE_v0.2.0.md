@@ -1,8 +1,11 @@
-# Meaning Assurance v0.2.0 — Public Preview
+# Meaning Assurance v0.2.0 — Coding Agent Verification and Adversarial Review
 
-**Meaning Assurance** is a local-first, file-backed protocol for separating a
-coding agent's completion claim from frozen evidence, independent challenge,
-moderated findings, and human acceptance.
+**Public Preview**
+
+Verify coding-agent task claims against frozen evidence.
+
+**Meaning Assurance** separates worker claims, reviewer findings, moderated
+outcomes, and human final acceptance.
 
 简体中文发布说明：[Meaning Assurance v0.2.0 — 公开预览版](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/.github/RELEASE_v0.2.0.zh-CN.md)
 
@@ -75,8 +78,9 @@ certification, or proof of product effectiveness.
 - Chinese audience-facing alias: **AI 对抗审计助手**
 - Public author: **LEVIUS**
 
-The repository may be renamed separately after explicit authorization and
-migration checks. v0.2.0 intentionally retains these compatibility identifiers:
+The public repository was renamed from `agent-workbench` to
+`meaning-assurance` on 2026-07-29. v0.2.0 intentionally retains these
+compatibility identifiers:
 
 ```text
 .agent-workbench

@@ -1,4 +1,4 @@
-# Meaning Assurance（AI 对抗审计助手）
+# Meaning Assurance（AI 对抗审计助手）— Coding Agent 证据核验与对抗复审
 
 **面向 Coding Agent 的证据核验与对抗复审机制——作者 LEVIUS**
 
@@ -17,8 +17,9 @@
 
 Coding Agent 擅长生产答案，但不应该拥有批准自己的权力。
 
-**Meaning Assurance（AI 对抗审计助手）**是一套本地优先、以文件为载体的协议，
-用于分离：
+**Meaning Assurance（AI 对抗审计助手）**是一套本地优先的 Coding Agent 证据核验
+协议：它依据冻结证据复核 Agent 主张，裁决对抗性 Finding，并把最终接受权留给
+人类。它用于分离：
 
 - Worker 声称完成了什么；
 - 冻结证据实际显示了什么；
@@ -29,6 +30,18 @@ Coding Agent 擅长生产答案，但不应该拥有批准自己的权力。
 > **Agent 提出结果，证据接受核验，人类决定是否采纳。**
 
 无托管控制面 · 不保存供应商 API Key · 不自动合并 · 人类保留最终决定权
+
+## 适合这些场景
+
+- 你需要核验 Coding Agent 的“已经完成”声明；
+- 你希望独立对抗复审 AI 生成的代码；
+- 你需要在接受 Agent 变更前保留人类审批门；
+- 你希望依据冻结证据复核 Claude Code 输出；
+- 你需要保留 Reviewer 分歧，而不是用一致意见掩盖它。
+
+[理解 Coding Agent 证据核验](docs/CODING_AGENT_VERIFICATION.md) ·
+[复核 Claude Code 输出](docs/CLAUDE_CODE_REVIEW_WORKFLOW.md) ·
+[保留人类接受门](docs/HUMAN_APPROVAL_GATE.md)
 
 ## 用一条命令查看完整裁决链
 

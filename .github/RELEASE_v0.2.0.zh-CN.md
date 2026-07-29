@@ -1,8 +1,11 @@
-# Meaning Assurance v0.2.0 — 公开预览版
+# Meaning Assurance v0.2.0 — Coding Agent 证据核验与对抗复审
 
-**Meaning Assurance（AI 对抗审计助手）**是一套本地优先、以文件为载体的协议，
-用于把 Coding Agent 的完成主张与冻结证据、独立挑战、经过裁决的 Finding 和人工
-接受分离开来。
+**公开预览版**
+
+依据冻结证据核验 Coding Agent 的任务完成声明。
+
+**Meaning Assurance（AI 对抗审计助手）**将 Worker 主张、Reviewer Finding、
+裁决结果与人类最终接受分离。
 
 English release notes: [Meaning Assurance v0.2.0 — Public Preview](https://github.com/leviuszen/meaning-assurance/blob/v0.2.0/.github/RELEASE_v0.2.0.md)
 
@@ -68,7 +71,8 @@ Demo 会写入 SHA-256 证据清单，以便检查复制后的 Fixture。
 - 中文受众名称：**AI 对抗审计助手**
 - 公开作者：**LEVIUS**
 
-仓库未来可能在获得单独授权并完成迁移检查后改名。v0.2.0 有意保留以下兼容标识：
+公开仓库已于 2026-07-29 从 `agent-workbench` 改名为 `meaning-assurance`。
+v0.2.0 有意保留以下兼容标识：
 
 ```text
 .agent-workbench
