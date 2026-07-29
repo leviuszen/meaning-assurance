@@ -18,7 +18,7 @@ ranking, traffic, adoption, or indexing claim.
 | Repository rename | Complete / 已完成 | Canonical repository: [leviuszen/meaning-assurance](https://github.com/leviuszen/meaning-assurance); the former GitHub URL redirects to the same repository |
 | Metadata | Complete / 已完成 | Description, 12 topics, and homepage read back from the live repository |
 | `v0.2.0` | Published / 已发布 | [Meaning Assurance v0.2.0 — Public Preview](https://github.com/leviuszen/meaning-assurance/releases/tag/v0.2.0), release commit `2a954e276eafd8602b24260fbac936db7427984b` |
-| Social Preview | Blocked locally / 本机受阻 | GitHub upload form reached; Chrome extension rejected local file selection until **Allow access to file URLs** is enabled |
+| Social Preview | Complete / 已完成 | `assets/social-preview.png` uploaded through the authenticated GitHub settings page; the repository API returned a dedicated `repository-images.githubusercontent.com` Open Graph image |
 
 ## Pages and verification / Pages 与验证
 
