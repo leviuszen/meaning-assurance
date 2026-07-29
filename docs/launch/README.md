@@ -9,6 +9,13 @@
 >
 > 本目录用于准备渠道原生稿，尚未发帖、提交、发送邮件或对外交付。
 
+The source drafts remain unpublished templates. Actual delivery state is
+tracked separately in
+[Publication Receipts — 2026-07-29](PUBLICATION_RECEIPTS_2026-07-29.md).
+
+源草稿仍然是未发布模板；实际发布、提交、受阻与平台处理状态单独记录在
+[2026-07-29 公开发布回执](PUBLICATION_RECEIPTS_2026-07-29.md)。
+
 ## First-wave order / 第一波顺序
 
 | Day | Channel / 渠道 | Role / 作用 |

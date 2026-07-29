@@ -132,3 +132,6 @@ reported with its own observable URL, identifier, or success response.
 
 授权本身不是送达回执。每项外部动作完成后，必须保留可观察的 URL、标识符或成功
 响应。
+
+Current receipts / 当前回执：
+[Publication Receipts — 2026-07-29](launch/PUBLICATION_RECEIPTS_2026-07-29.md).
