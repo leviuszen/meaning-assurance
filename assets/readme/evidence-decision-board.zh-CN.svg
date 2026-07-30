@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="520" viewBox="0 0 1200 520"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Meaning Assurance 证据裁决链</title>
+  <desc id="desc">确定性案例：Worker 声称 COMPLETE，冻结证据显示两项冲突，四项 Finding 接受裁决，最终接受状态由人类控制并保持 BLOCKED。</desc>
+
+  <rect width="1200" height="520" rx="28" fill="#09111f"/>
+  <rect x="1" y="1" width="1198" height="518" rx="27" fill="none" stroke="#8fa7bf" stroke-opacity=".28"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="60" y="58" fill="#55d6be" font-size="18" font-weight="700" letter-spacing="2">可复现的证据裁决链</text>
+    <text x="60" y="101" fill="#f5f2e8" font-size="34" font-weight="700">一项主张。冻结证据。人类作出决定。</text>
+    <text x="1140" y="58" fill="#8fa7bf" font-size="17" text-anchor="end">MEANING ASSURANCE · BY LEVIUS</text>
+
+    <g transform="translate(60 140)">
+      <rect width="246" height="260" rx="18" fill="#0e1a2a" stroke="#55d6be" stroke-opacity=".58"/>
+      <text x="22" y="38" fill="#8fa7bf" font-size="18" font-weight="700">01 · WORKER 主张</text>
+      <text x="22" y="92" fill="#55d6be" font-size="34" font-weight="800">COMPLETE</text>
+      <line x1="22" y1="116" x2="224" y2="116" stroke="#8fa7bf" stroke-opacity=".26"/>
+      <circle cx="30" cy="154" r="5" fill="#55d6be"/>
+      <text x="48" y="161" fill="#d8e0e8" font-size="21">声明任务范围</text>
+      <circle cx="30" cy="195" r="5" fill="#55d6be"/>
+      <text x="48" y="202" fill="#d8e0e8" font-size="21">声明测试要求</text>
+      <text x="22" y="238" fill="#8fa7bf" font-size="17">主张不等于批准</text>
+    </g>
+
+    <path d="M315 270 H325" stroke="#8fa7bf" stroke-width="2"/>
+    <path d="M322 263 L330 270 L322 277" fill="none" stroke="#8fa7bf" stroke-width="2"/>
+
+    <g transform="translate(330 140)">
+      <rect width="246" height="260" rx="18" fill="#0e1a2a" stroke="#f5b971" stroke-opacity=".68"/>
+      <text x="22" y="38" fill="#8fa7bf" font-size="18" font-weight="700">02 · 冻结证据</text>
+      <text x="22" y="92" fill="#f5b971" font-size="34" font-weight="800">2 项冲突</text>
+      <line x1="22" y1="116" x2="224" y2="116" stroke="#8fa7bf" stroke-opacity=".26"/>
+      <circle cx="30" cy="154" r="5" fill="#f5b971"/>
+      <text x="48" y="161" fill="#d8e0e8" font-size="21">缺少声明测试</text>
+      <circle cx="30" cy="195" r="5" fill="#f5b971"/>
+      <text x="48" y="202" fill="#d8e0e8" font-size="21">修改文件越界</text>
+      <text x="22" y="238" fill="#8fa7bf" font-size="17">经过清点与哈希</text>
+    </g>
+
+    <path d="M585 270 H595" stroke="#8fa7bf" stroke-width="2"/>
+    <path d="M592 263 L600 270 L592 277" fill="none" stroke="#8fa7bf" stroke-width="2"/>
+
+    <g transform="translate(600 140)">
+      <rect width="246" height="260" rx="18" fill="#0e1a2a" stroke="#8fa7bf" stroke-opacity=".48"/>
+      <text x="22" y="38" fill="#8fa7bf" font-size="18" font-weight="700">03 · 证据裁决</text>
+      <text x="22" y="92" fill="#f5f2e8" font-size="34" font-weight="800">4 项 FINDING</text>
+      <line x1="22" y1="116" x2="224" y2="116" stroke="#8fa7bf" stroke-opacity=".26"/>
+      <text x="22" y="158" fill="#55d6be" font-size="21" font-weight="700">2 项已确认</text>
+      <text x="22" y="196" fill="#f5b971" font-size="21" font-weight="700">1 项已驳回</text>
+      <text x="22" y="234" fill="#b7c4d1" font-size="21" font-weight="700">1 项不可检验</text>
+    </g>
+
+    <path d="M855 270 H865" stroke="#8fa7bf" stroke-width="2"/>
+    <path d="M862 263 L870 270 L862 277" fill="none" stroke="#8fa7bf" stroke-width="2"/>
+
+    <g transform="translate(870 140)">
+      <rect width="270" height="260" rx="18" fill="#13233a" stroke="#f5b971" stroke-width="2"/>
+      <text x="22" y="38" fill="#8fa7bf" font-size="18" font-weight="700">04 · 最终接受</text>
+      <text x="22" y="92" fill="#f5b971" font-size="34" font-weight="800">BLOCKED</text>
+      <line x1="22" y1="116" x2="248" y2="116" stroke="#8fa7bf" stroke-opacity=".26"/>
+      <circle cx="30" cy="154" r="5" fill="#f5f2e8"/>
+      <text x="48" y="161" fill="#f5f2e8" font-size="21">由人类控制</text>
+      <circle cx="30" cy="195" r="5" fill="#f5f2e8"/>
+      <text x="48" y="202" fill="#f5f2e8" font-size="21">不自动合并</text>
+      <text x="22" y="238" fill="#8fa7bf" font-size="17">需要补充证据</text>
+    </g>
+
+    <line x1="60" y1="438" x2="1140" y2="438" stroke="#8fa7bf" stroke-opacity=".24"/>
+    <text x="60" y="479" fill="#55d6be" font-size="20" font-weight="700">AGENT 提出结果</text>
+    <text x="398" y="479" fill="#b7c4d1" font-size="20" font-weight="700">证据接受核验</text>
+    <text x="1140" y="479" fill="#f5f2e8" font-size="20" font-weight="700" text-anchor="end">人类决定是否采纳</text>
+  </g>
+</svg>

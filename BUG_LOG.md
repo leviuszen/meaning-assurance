@@ -84,6 +84,15 @@ No confirmed public-release defects are recorded yet.
 - Verification: `test-run-demo.ps1` checks the four canonical output lines, and `test-turnaround-assets.ps1` checks the evidence and review lines across all seven public summary locations.
 - Compatibility impact: The deterministic demo now emits one additional explanatory line; evidence files and final decision semantics are unchanged.
 
+## 2026-07-30 - README compression removed a frozen boundary phrase
+
+- Affected version: local discoverability candidate only
+- Symptom: `test-turnaround-assets.ps1` failed after the visual refresh removed the exact bilingual boundary stating that the protocol does not guarantee the final decision is correct.
+- Root cause: Three overlapping explanation sections were compressed without first preserving every phrase covered by the public communication contract.
+- Fix or mitigation: Restore the English and Chinese boundary as a concise callout beside the mechanism summary.
+- Verification: The focused TURNAROUND-01 contract test passes, all 18 Windows PowerShell 5.1 tests pass, and the rendered evidence boards retain adjacent searchable text.
+- Compatibility impact: Documentation-only correction; no runtime behavior or public API changed.
+
 ## Record Format
 
 ```markdown

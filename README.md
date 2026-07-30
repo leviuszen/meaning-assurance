@@ -1,4 +1,4 @@
-# Meaning Assurance
+# Meaning Assurance — Coding Agent Verification and Adversarial Review
 
 **Evidence-based adversarial review for coding agents — by LEVIUS**
 
@@ -19,7 +19,9 @@ confidence?
 Coding agents are good at producing answers. They should not have the authority
 to approve themselves.
 
-**Meaning Assurance** is a local-first, file-backed protocol that separates:
+**Meaning Assurance** is a local-first coding agent verification protocol for
+reviewing agent claims against frozen evidence, moderating adversarial findings,
+and keeping final acceptance human. It separates:
 
 - what a worker claims;
 - what the frozen evidence shows;
@@ -32,6 +34,10 @@ to approve themselves.
 No hosted control plane · No stored provider API keys · No automatic merge ·
 Human final authority
 
+<p align="center">
+  <img src="./assets/readme/evidence-decision-board.svg" width="100%" alt="A reproducible decision trail: a worker claims COMPLETE, frozen evidence reveals two conflicts, four findings are moderated, and human-controlled final acceptance remains BLOCKED.">
+</p>
+
 ## See the decision trail in one command
 
 Clone the repository, then run:
@@ -40,14 +46,9 @@ Clone the repository, then run:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Run-Demo.ps1
 ```
 
-The deterministic demo:
-
-- needs no API key and launches no external agent;
-- does not modify an existing repository;
-- copies a fixed evidence packet into a new temporary output folder;
-- shows one worker claim, four reviewer findings, moderation outcomes, and a
-  human-controlled final state; and
-- writes SHA-256 hashes so the copied evidence can be checked.
+The deterministic demo needs no API key, launches no external agent, and does
+not modify an existing repository. It copies a fixed evidence packet into a new
+temporary output folder and writes SHA-256 hashes for the copied evidence.
 
 Expected decision summary:
 
@@ -60,6 +61,17 @@ Final acceptance: BLOCKED
 
 [Read the five-minute quick start](docs/QUICKSTART.md) ·
 [Inspect the demo fixture](examples/demo-fixture/README.md)
+
+## Use it when
+
+- you need to verify a coding agent's “done” claim against inspectable evidence;
+- you want an adversarial code review without treating agent agreement as proof;
+- you need a human approval gate before accepting AI-generated changes; or
+- you want to preserve reviewer disagreement and a reproducible decision trail.
+
+[Understand coding agent verification](docs/CODING_AGENT_VERIFICATION.md) ·
+[Review Claude Code output](docs/CLAUDE_CODE_REVIEW_WORKFLOW.md) ·
+[Keep the human approval gate](docs/HUMAN_APPROVAL_GATE.md)
 
 ## Strategic planning brainstorm
 
@@ -113,7 +125,7 @@ acceptance outside the reviewer.
 [Read the strategy discussion](docs/cases/2026-07-25-readme-strategy-review/strategy-discussion.md) ·
 [Inspect the read-only audit](docs/cases/2026-07-25-readme-strategy-review/read-only-audit.md)
 
-## What it changes
+## How assurance works
 
 Most coding-agent workflows combine production and judgment in the same chat:
 
@@ -133,43 +145,19 @@ flowchart LR
     M --> H2["Human accepts, rejects, or asks for more evidence"]
 ```
 
-The protocol provides:
+Meaning Assurance is a local, file-backed role protocol—not a coding model,
+chat interface, model-voting system, operating-system sandbox, or autonomous
+approval service. It freezes reference snapshots, isolates implementation
+workers in Git worktrees, records reviewer findings as `confirmed`, `rejected`,
+`duplicate`, or `not-testable`, and exposes unresolved disagreement.
 
-- bounded task and discussion packets;
-- isolated Git worktrees for implementation workers;
-- frozen, inventoried, and hashed reference snapshots;
-- blind Round 1 review and targeted Round 2 challenge;
-- required and optional reviewer gates;
-- canonical result files and invalid-output quarantine;
-- PID-backed invocation leases that prevent blind duplicate retries;
-- explicit `confirmed`, `rejected`, `duplicate`, and `not-testable` outcomes;
-- visible unresolved disagreement; and
-- no automatic merge or patch application.
+> **Boundary:** A guarantee that the final decision is correct is outside the
+> protocol's claim; human judgment can still be wrong.
 
-## What it is—and is not
-
-| Meaning Assurance is | Meaning Assurance is not |
-|---|---|
-| A local protocol around coding-agent delegation | A new coding model or chat interface |
-| A way to preserve evidence and disagreement | A model-voting system |
-| A controller/worker/reviewer/human role contract | A fixed Codex–Claude–Reasonix trio |
-| A file-backed audit trail for engineering decisions | A guarantee that the final decision is correct |
-| Windows-first and PowerShell-based today | A complete operating-system sandbox |
-| Human-controlled at the acceptance boundary | An automatic merge or autonomous approval service |
-
-## Two operating paths
-
-### Read-only strategy or code review
-
-The controller freezes a bounded reference packet. Reviewers inspect copies,
-not mutable source paths. A moderator verifies findings, challenges weak
-inferences, and records a decision or escalates unresolved disagreement.
-
-### Isolated implementation
-
-An external worker receives a bounded task packet and edits only a dedicated Git
-worktree. The collector exposes canonical results and the isolated diff. Nothing
-is merged or applied automatically.
+| Governed path | What happens | Acceptance boundary |
+|---|---|---|
+| Read-only strategy or code review | Reviewers inspect a frozen copy; a moderator verifies findings and records unresolved disagreement. | Source files are not edited; the human decides the route. |
+| Isolated implementation | A worker edits a dedicated Git worktree; the collector exposes canonical results and the isolated diff. | Nothing is merged or applied automatically. |
 
 [Read the protocol](docs/PROTOCOL.md) ·
 [Read the architecture](docs/ARCHITECTURE.md) ·

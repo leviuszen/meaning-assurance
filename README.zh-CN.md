@@ -1,4 +1,4 @@
-# Meaning Assurance（AI 对抗审计助手）
+# Meaning Assurance（AI 对抗审计助手）— Coding Agent 证据核验与对抗复审
 
 **面向 Coding Agent 的证据核验与对抗复审机制——作者 LEVIUS**
 
@@ -17,8 +17,9 @@
 
 Coding Agent 擅长生产答案，但不应该拥有批准自己的权力。
 
-**Meaning Assurance（AI 对抗审计助手）**是一套本地优先、以文件为载体的协议，
-用于分离：
+**Meaning Assurance（AI 对抗审计助手）**是一套本地优先的 Coding Agent 证据核验
+协议：它依据冻结证据复核 Agent 主张，裁决对抗性 Finding，并把最终接受权留给
+人类。它用于分离：
 
 - Worker 声称完成了什么；
 - 冻结证据实际显示了什么；
@@ -30,6 +31,10 @@ Coding Agent 擅长生产答案，但不应该拥有批准自己的权力。
 
 无托管控制面 · 不保存供应商 API Key · 不自动合并 · 人类保留最终决定权
 
+<p align="center">
+  <img src="./assets/readme/evidence-decision-board.zh-CN.svg" width="100%" alt="一条可复现的裁决链：Worker 声称 COMPLETE，冻结证据显示两项冲突，四项 Finding 接受裁决，最终接受状态由人类控制并保持 BLOCKED。">
+</p>
+
 ## 用一条命令查看完整裁决链
 
 克隆仓库后运行：
@@ -38,13 +43,9 @@ Coding Agent 擅长生产答案，但不应该拥有批准自己的权力。
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Run-Demo.ps1
 ```
 
-这个确定性演示：
-
-- 不需要 API Key，也不会启动外部 Agent；
-- 不修改用户已有仓库；
-- 将固定证据包复制到一个新建的临时输出目录；
-- 展示一项 Worker 主张、四项 Reviewer Finding、裁决结果和由人类控制的最终状态；
-- 写入 SHA-256 哈希，以便检查复制后的证据。
+这个确定性演示不需要 API Key，不会启动外部 Agent，也不修改用户已有仓库。
+它将固定证据包复制到一个新建的临时输出目录，并写入 SHA-256 哈希，以便检查
+复制后的证据。
 
 预期摘要：
 
@@ -57,6 +58,17 @@ Final acceptance: BLOCKED
 
 [阅读五分钟快速开始](docs/QUICKSTART.md) ·
 [检查演示 Fixture](examples/demo-fixture/README.md)
+
+## 适合这些场景
+
+- 你需要依据可检查证据核验 Coding Agent 的“已经完成”声明；
+- 你希望对抗复审 AI 生成的代码，而不是把 Agent 一致意见当成证明；
+- 你需要在接受 AI 生成的变更前保留人类审批门；
+- 你需要保留 Reviewer 分歧和一条可复现的裁决链。
+
+[理解 Coding Agent 证据核验](docs/CODING_AGENT_VERIFICATION.md) ·
+[复核 Claude Code 输出](docs/CLAUDE_CODE_REVIEW_WORKFLOW.md) ·
+[保留人类接受门](docs/HUMAN_APPROVAL_GATE.md)
 
 ## 战略规划头脑风暴
 
@@ -105,7 +117,7 @@ Meaning Assurance 已被用于审视本仓库自身的传播策略。Claude Code
 [阅读战略讨论](docs/cases/2026-07-25-readme-strategy-review/strategy-discussion.md) ·
 [检查只读审计](docs/cases/2026-07-25-readme-strategy-review/read-only-audit.md)
 
-## 它改变了什么
+## 证据核验如何工作
 
 许多 Coding Agent 工作流把生产和判断放在同一个对话中：
 
@@ -125,41 +137,17 @@ flowchart LR
     M --> H2["人类接受、拒绝或要求更多证据"]
 ```
 
-协议提供：
+Meaning Assurance 是一套本地、文件化的角色协议，不是编码模型、聊天界面、
+模型投票系统、操作系统级沙箱或自主审批服务。它冻结参考快照，在 Git worktree
+中隔离实现 Worker，将 Reviewer Finding 记录为 `confirmed`、`rejected`、
+`duplicate` 或 `not-testable`，并让未解决分歧保持可见。
 
-- 有明确边界的任务包和讨论包；
-- 面向实现 Worker 的隔离 Git worktree；
-- 经过清点、冻结和哈希的参考快照；
-- blind Round 1 与 targeted Round 2；
-- required 与 optional Reviewer gate；
-- 规范结果文件和无效输出隔离；
-- 防止超时后盲目重复启动的 PID 调用租约；
-- `confirmed`、`rejected`、`duplicate` 和 `not-testable` 裁决；
-- 可见的未解决分歧；
-- 不自动合并，也不自动应用 Patch。
+> **边界：**对最终决定正确性的保证不属于协议主张；人类判断仍可能出错。
 
-## 它是什么、不是什么
-
-| Meaning Assurance 是 | Meaning Assurance 不是 |
-|---|---|
-| Coding Agent 委派外围的本地协议 | 新的编码模型或聊天界面 |
-| 保存证据和分歧的方法 | 模型投票系统 |
-| Controller、Worker、Reviewer 与 Human 的角色合同 | 固定的 Codex–Claude–Reasonix 三件套 |
-| 面向工程决策的文件化审计轨迹 | 对最终决定正确性的保证 |
-| 当前以 Windows 和 PowerShell 为主 | 完整的操作系统沙箱 |
-| 在接受边界保留人工控制 | 自动合并或自主批准服务 |
-
-## 两条工作路径
-
-### 只读战略或代码复审
-
-Controller 冻结有边界的参考包。Reviewer 检查副本，而不是可变的源路径。
-Moderator 核验 Finding、挑战弱推断，并记录决定；重大分歧无法解决时交还人类。
-
-### 隔离实现
-
-外部 Worker 接收有边界的任务包，只在专用 Git worktree 中修改文件。Collector
-展示规范结果和隔离 diff，不会自动合并或应用任何修改。
+| 受控路径 | 如何工作 | 接受边界 |
+|---|---|---|
+| 只读战略或代码复审 | Reviewer 检查冻结副本；Moderator 核验 Finding，并记录未解决分歧。 | 不修改源文件，由人类决定路线。 |
+| 隔离实现 | Worker 只在专用 Git worktree 中编辑；Collector 展示规范结果和隔离 diff。 | 不自动合并或应用修改。 |
 
 [阅读协议](docs/PROTOCOL.md) ·
 [阅读架构](docs/ARCHITECTURE.md) ·
